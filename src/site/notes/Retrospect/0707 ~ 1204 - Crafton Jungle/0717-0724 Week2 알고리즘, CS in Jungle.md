@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/retrospect/0707-1204-crafton-jungle/0717-0724-week2-cs-in-jungle/","noteIcon":"","created":"2025-07-24T20:17:27.309+09:00","updated":"2025-07-24T20:49:01.227+09:00"}
+{"dg-publish":true,"permalink":"/retrospect/0707-1204-crafton-jungle/0717-0724-week2-cs-in-jungle/","noteIcon":"","created":"2025-07-24T20:17:27.309+09:00","updated":"2025-07-24T20:49:25.099+09:00"}
 ---
 
 
@@ -12,7 +12,7 @@
 이번 커리큘럼에서 3문제(플레 2개, 골드 1개)를 못 풀었는데 나중에 풀어봐야겠다.
 이분탐색, 분할정복은 감이 잘 오는데 스택 부분이 은근 어렵게 느껴졌다.
 그래도 점점 저번주보다는 문제를 보고 설계가 잘 되는 것 같아서 실력이 늘은 것 같다.
-개별 문제들에 대한 리뷰는 링크 참고 
+> **개별 문제들에 대한 리뷰는 링크 참고** 
 #### 스택, 큐 링크 
 - [[DevStudy/Argorithm/python/스택, 큐/백준 2504 - 괄호 문제 해법\|백준 2504 - 괄호 문제 해법]]
 - [[DevStudy/Argorithm/python/스택, 큐/백준 17298 - 오큰수\|백준 17298 - 오큰수]]

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/os/computer-system/week02/data-representation/","noteIcon":"","created":"2025-07-22T23:21:01.151+09:00","updated":"2025-07-24T20:22:43.099+09:00"}
+{"dg-publish":true,"permalink":"/os/computer-system/week02/data-representation/","noteIcon":"","created":"2025-07-22T23:21:01.151+09:00","updated":"2025-07-24T20:29:13.740+09:00"}
 ---
 
 
@@ -271,7 +271,7 @@ Boolean
 	- OS 및 임베디드 
 	- 네트워크 프로토콜 등 
 ---
-### C에서의 비트수준 연산 - |, &, ^, ~, >>, <<
+### C에서의 비트수준 연산 - `|, &, ^, ~, >>, <<`
 
 > 비트 자리별로 비교한다.
 

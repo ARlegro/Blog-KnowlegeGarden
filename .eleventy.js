@@ -14,10 +14,6 @@ const {
   userEleventySetup,
 } = require("./src/helpers/userSetup");
 
-// eleventy.js (상단에 추가)
-const slugOptions = { lower: true, strict: false, locale: "ko",
-                      remove: /[~`!@#$%^&*()=+\[\]{};:'",.<>/?]/g };
-
 const Image = require("@11ty/eleventy-img");
 function transformImage(src, cls, alt, sizes, widths = ["500", "700", "auto"]) {
   let options = {
@@ -276,24 +272,20 @@ module.exports = function (eleventyConfig) {
 
   
   
-  // 추가
-  eleventyConfig.addGlobalData("eleventyComputed", {
-    permalink: (data) => {
-      // front-matter에 permalink 있으면 그대로 사용
-      if (data.permalink) return data.permalink;
+  // // 추가
+  // eleventyConfig.addGlobalData("eleventyComputed", {
+  //   permalink: (data) => {
+  //     // front-matter에 permalink 있으면 그대로 사용
+  //     if (data.permalink) return data.permalink;
 
-      // gardenEntry 태그 있는 경우만 루트, 나머지는 /notes/slug/
-      if (data.tags && data.tags.includes("gardenEntry")) return "/";
+  //     // gardenEntry 태그 있는 경우만 루트, 나머지는 /notes/slug/
+  //     if (data.tags && data.tags.includes("gardenEntry")) return "/";
 
-      // 중복 방지 위해 기본적으로 /notes/ 하위에 둔다
-      if (data.fileSlug) return `/notes/${data.fileSlug}/`;
-    },
-  });
+  //     // 중복 방지 위해 기본적으로 /notes/ 하위에 둔다
+  //     if (data.fileSlug) return `/notes/${data.fileSlug}/`;
+  //   },
+  // });
 
-  // 추가
-  eleventyConfig.addFilter("koSlug", (str) => slugify(str, slugOptions));
-  // Eleventy가 내부에서 쓰는 slugify도 덮어쓰기
-  eleventyConfig.addGlobalData("slugify", (str) => slugify(str, slugOptions));
 
   eleventyConfig.addFilter("isoDate", function (date) {
     return date && date.toISOString();

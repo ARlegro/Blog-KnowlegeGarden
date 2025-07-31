@@ -14,6 +14,9 @@ const {
   userEleventySetup,
 } = require("./src/helpers/userSetup");
 
+// eleventy.js (상단에 추가)
+const slugOptions = { lower: true, strict: false, locale: "ko",
+                      remove: /[~`!@#$%^&*()=+\[\]{};:'",.<>/?]/g };
 
 const Image = require("@11ty/eleventy-img");
 function transformImage(src, cls, alt, sizes, widths = ["500", "700", "auto"]) {
@@ -271,6 +274,8 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.setLibrary("md", markdownLib);
 
+  
+  
   // 추가
   eleventyConfig.addGlobalData("eleventyComputed", {
     permalink: (data) => {
@@ -284,6 +289,11 @@ module.exports = function (eleventyConfig) {
       if (data.fileSlug) return `/notes/${data.fileSlug}/`;
     },
   });
+
+  // 추가
+  eleventyConfig.addFilter("koSlug", (str) => slugify(str, slugOptions));
+  // Eleventy가 내부에서 쓰는 slugify도 덮어쓰기
+  eleventyConfig.addGlobalData("slugify", (str) => slugify(str, slugOptions));
 
   eleventyConfig.addFilter("isoDate", function (date) {
     return date && date.toISOString();

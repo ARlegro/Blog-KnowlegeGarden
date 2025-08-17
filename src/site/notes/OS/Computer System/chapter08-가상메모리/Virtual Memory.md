@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/OS/Computer System/chapter08-가상메모리/Virtual Memory/","noteIcon":"","created":"2025-07-13T17:00:57.171+09:00","updated":"2025-08-13T19:59:49.542+09:00"}
+{"dg-publish":true,"permalink":"/OS/Computer System/chapter08-가상메모리/Virtual Memory/","noteIcon":"","created":"2025-07-13T17:00:57.171+09:00","updated":"2025-08-18T01:18:52.013+09:00"}
 ---
 
 #메모리_관리_기법 
@@ -37,7 +37,7 @@
 ---
 #### 4GB는 너 것이 아니다 💢
 > 한 애플리케이션에 부여된 4GB의 가상 메모리 공간 전체는 사용자가 쓸 수 있는 곳은 아니다!! 
-- 보통 2GB는 사용자 영역, 나머지는 2GB는 OS가 사용하는 Kernal영역이며
+- 보통 사용자 영역과, Kernal 영역을 2GB씩 파티셔닝한다 
 - User가 Kernal영역에 직접 접근하려고 하면 애플리케이션은 강제 종료된다.(User 영역을 거쳐야)
 ![Pasted image 20250729134400.png](/img/user/supporter/image/Pasted%20image%2020250729134400.png)
 

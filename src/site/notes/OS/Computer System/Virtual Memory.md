@@ -1,11 +1,11 @@
 ---
-{"dg-publish":true,"permalink":"/OS/Computer System/Virtual Memory/","noteIcon":"","created":"2025-07-13T17:00:57.171+09:00","updated":"2025-08-13T14:18:03.855+09:00"}
+{"dg-publish":true,"permalink":"/OS/Computer System/Virtual Memory/","noteIcon":"","created":"2025-07-13T17:00:57.171+09:00","updated":"2025-08-13T19:59:49.542+09:00"}
 ---
 
 #메모리_관리_기법 
 
 **Preview**
-- 실제 물리적 메모리보다 더 큰 메모리를 사용하는 것처럼 보이게 하는 메모리 관리 기법 
+- 실제 물리적 메모리보다 더 큰 메모리를 사용하는 것**처럼 보이게 하는** 메모리 관리 기법 
 - HDD공간을 메모리처럼 활용하여 프로그램이 마치 실제 메모리가 충분한 것처럼 작동 
 - (프로세스가 독점적으로 사용하는 것처럼 메모리 가상화)
 
@@ -23,7 +23,6 @@
 
  OS는 프로세스, 가상 메모리, 파일 을 통해 추상화를 달성했다.
 ![Pasted image 20250713133447.png](/img/user/supporter/image/Pasted%20image%2020250713133447.png)
-
 ---
 #### 개념
 - **메모리를 추상화**하여 각 프로세스에게 독립적인 메모리 공간을 제공
@@ -58,7 +57,7 @@
 ![Pasted image 20250730195702.png](/img/user/supporter/image/Pasted%20image%2020250730195702.png)
 
 ### 심화 : 커널 영역 
-참고 : [[OS/Computer System/커널 영역 심화\|커널 영역 심화]]
+참고 : [[OS/Computer System/chapter06-메모리계층구조/커널 영역 심화\|커널 영역 심화]]
 
 
 ---

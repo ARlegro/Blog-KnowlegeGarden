@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/dev-study/db/fundamentals-of-db-engineering/6-seed/","noteIcon":"","created":"2025-06-12T13:06:38.479+09:00","updated":"2025-07-13T21:41:54.202+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/DB/Fundamentals of DB engineering/연관된 6개 테이블 - seed 만들어보기/","noteIcon":"","created":"2025-06-12T13:06:38.479+09:00","updated":"2025-07-13T21:41:54.202+09:00"}
 ---
 
 

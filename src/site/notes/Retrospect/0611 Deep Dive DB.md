@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/retrospect/0611-deep-dive-db/","noteIcon":"","created":"2025-06-16T21:24:01.417+09:00","updated":"2025-07-13T21:44:33.376+09:00"}
+{"dg-publish":true,"permalink":"/Retrospect/0611 Deep Dive DB/","noteIcon":"","created":"2025-06-16T21:24:01.417+09:00","updated":"2025-07-13T21:44:33.376+09:00"}
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/dev-study/backend/spring/java-mail-sender-in-spring-doc/","noteIcon":"","created":"2025-07-02T16:20:49.528+09:00","updated":"2025-07-13T21:32:30.453+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Spring/Java MailSender in Spring Doc/","noteIcon":"","created":"2025-07-02T16:20:49.528+09:00","updated":"2025-07-13T21:32:30.453+09:00"}
 ---
 
 

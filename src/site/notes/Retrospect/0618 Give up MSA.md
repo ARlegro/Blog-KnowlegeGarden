@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/retrospect/0618-give-up-msa/","noteIcon":"","created":"2025-06-20T21:45:38.012+09:00","updated":"2025-07-13T21:30:19.863+09:00"}
+{"dg-publish":true,"permalink":"/Retrospect/0618 Give up MSA/","noteIcon":"","created":"2025-06-20T21:45:38.012+09:00","updated":"2025-07-13T21:30:19.863+09:00"}
 ---
 
 

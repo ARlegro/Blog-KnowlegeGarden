@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/dev-study/infra/connect-ec-2-by-wsl-feat-ssh/","noteIcon":"","created":"2025-05-13T17:38:07.218+09:00","updated":"2025-05-18T00:11:54.056+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Infra/Connect_EC2_by_WSL(feat.SSH)/","noteIcon":"","created":"2025-05-13T17:38:07.218+09:00","updated":"2025-07-10T14:07:07.120+09:00"}
 ---
 
 
@@ -184,7 +184,7 @@ cp /mnt/c/ec2key/jungle.pem ~/.ssh/
 - `/mnt/c/...` : Window 디스크를 wsl에서 접근하는 경로 
 
 #### 4. 키 파일 권한 제한 
-- ec2에 보내기 전 키 파일 권한을 제한한다.
+- ec2에 보내기 전 키 파일  권한을 제한한다.
 
 > [!INFO] 권한 제한 이유
 > - SSH는 보안을 매우 중요하게 여겨서, 키파일이 너무 개방적이면 위험 요소로 간주하고 사용을 거부한다.
@@ -203,7 +203,14 @@ ls -l ~/.ssh
 -r-------- 1 root root 1678 May 13 17:36 jungle.pem
 ```
 
-#### 5. EC2 접속 
+#### 5. EC2에 공개 키 등록 
+
+ssh 연결에 쓰려는 비밀키의 공개키를 복사해서 ubuntu 서버의 ~/.ssh에 파일로 저장 
+```bash
+echo "id_ed25519.pub
+ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICubrCDNOTLZE3lglCPWIHjtnT81GSBkeyZtCkJqidGJ icb1696@naver.com" >> ~/.ssh/redis_keys
+```
+#### 6. EC2 접속 
 ```bash
 ssh -i [키페어] ubuntu@ec2pulicIp
 

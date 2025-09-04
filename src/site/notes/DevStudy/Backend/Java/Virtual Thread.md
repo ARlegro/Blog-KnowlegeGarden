@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/dev-study/backend/java/virtual-thread/","noteIcon":"","created":"2025-05-18T00:12:00.208+09:00","updated":"2025-05-20T23:04:27.223+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/Virtual Thread/","noteIcon":"","created":"2025-05-18T00:12:00.208+09:00","updated":"2025-05-20T23:04:27.223+09:00"}
 ---
 
 

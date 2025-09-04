@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/dev-study/backend/java/multi/multi-tasking-vs-multi-processing/","noteIcon":"","created":"2025-06-30T23:27:14.396+09:00","updated":"2025-07-13T21:07:50.377+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/multi/Multi-Tasking vs Multi-Processing/","noteIcon":"","created":"2025-06-30T23:27:14.396+09:00","updated":"2025-07-14T21:19:08.222+09:00"}
 ---
 
 [
@@ -42,7 +42,7 @@
 ### 멀티 프로세싱
 > 물리적으로 “진짜 동시에 실행”할 수 있는 기술
 ---
-#### 정의
+#### 1. 정의
 - **컴퓨터 시스템에서 둘 이상의 프로세서(CPU 코어)를 사용하여 여러 작업을 동시에 처리하는 기술.**
 - 여러 CPU코어를 사용하므로 더 많은 작업을 처리 가능
   

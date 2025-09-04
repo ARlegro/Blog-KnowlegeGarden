@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/retrospect/0630-semi-finished-my-part-test-container/","noteIcon":"","created":"2025-06-30T23:18:55.341+09:00","updated":"2025-07-13T21:35:04.396+09:00"}
+{"dg-publish":true,"permalink":"/Retrospect/0630 semi-finished my-part + test(Container)/","noteIcon":"","created":"2025-06-30T23:18:55.341+09:00","updated":"2025-07-13T21:35:04.396+09:00"}
 ---
 
 

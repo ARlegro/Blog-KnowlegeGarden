@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/retrospect/0707-1204-crafton-jungle/0717-0724-week2-cs-in-jungle/","noteIcon":"","created":"2025-07-24T20:17:27.309+09:00","updated":"2025-07-24T20:49:25.099+09:00"}
+{"dg-publish":true,"permalink":"/Retrospect/0707 ~ 1204 - Crafton Jungle/0717-0724 Week2 알고리즘, CS in Jungle/","noteIcon":"","created":"2025-07-24T20:17:27.309+09:00","updated":"2025-08-01T00:08:43.219+09:00"}
 ---
 
 
@@ -26,10 +26,10 @@
 - [[DevStudy/Argorithm/python/이분탐색, 분할정복/백준 2805번 - 나무자르기(이진)\|백준 2805번 - 나무자르기(이진)]]
 - [[DevStudy/Argorithm/python/이분탐색, 분할정복/백준 6549 - 히스토그램에서 가장 큰 직사각형\|백준 6549 - 히스토그램에서 가장 큰 직사각형]]
 - [[DevStudy/Argorithm/python/이분탐색, 분할정복/백준 11053 - LIS 알고리즘\|백준 11053 - LIS 알고리즘]]
-- [[DevStudy/Argorithm/python/이분탐색, 분할정복/백준 1629 메모리 초과 해결\|백준 1629 메모리 초과 해결]]
+- [[DevStudy/Argorithm/python/이분탐색, 분할정복/백준 1629 - 메모리 초과 해결\|백준 1629 - 메모리 초과 해결]]
 - [[DevStudy/Argorithm/이분탐색 개념\|이분탐색 개념]]
-- [[DevStudy/Argorithm/병합 정렬\|병합 정렬]]
-- [[DevStudy/Argorithm/분할 정복\|분할 정복]]
+- [[DevStudy/Argorithm/Merge Sort\|Merge Sort]]
+- [[DevStudy/Argorithm/Divide and Conquer\|Divide and Conquer]]
 
 ### Week2 - CS
 
@@ -38,6 +38,6 @@
 저번 주에 비해서 굉장히 어려웠고 이해하기 어려운 내용이라 당황했는데 어찌저찌 Gemini + GPT선생님의 설명을 들으면서 조금 이해할 수 있었던 것 같다. <BR>
 
 **정리 내용** 
-- [[OS/Computer System/Week02 - 정보의 표현과 처리/Data representation\|Data representation]]
-- [[OS/Computer System/Week02 - 정보의 표현과 처리/정보의 저장\|정보의 저장]]
+- [[Computer_Science/Computer_Data/Data representation\|Data representation]]
+- [[Computer_Science/Computer_Data/정보의 저장\|정보의 저장]]
 

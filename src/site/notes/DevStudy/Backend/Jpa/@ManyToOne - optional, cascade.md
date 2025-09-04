@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/dev-study/backend/jpa/many-to-one-optional-cascade/","noteIcon":"","created":"2025-05-18T00:12:00.214+09:00","updated":"2025-05-20T23:04:09.099+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Jpa/@ManyToOne - optional, cascade/","noteIcon":"","created":"2025-05-18T00:12:00.214+09:00","updated":"2025-06-20T21:43:41.618+09:00"}
 ---
 
 

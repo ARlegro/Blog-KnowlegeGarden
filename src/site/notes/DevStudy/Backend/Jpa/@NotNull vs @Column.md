@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/dev-study/backend/jpa/not-null-vs-column/","noteIcon":"","created":"2025-05-18T00:12:00.219+09:00","updated":"2025-05-18T00:12:00.220+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Jpa/@NotNull vs @Column/","noteIcon":"","created":"2025-05-18T00:12:00.219+09:00","updated":"2025-05-18T00:12:00.220+09:00"}
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/retrospect/0624-help-project/","noteIcon":"","created":"2025-06-24T21:58:53.267+09:00","updated":"2025-07-13T21:30:48.909+09:00"}
+{"dg-publish":true,"permalink":"/Retrospect/0624 Help project/","noteIcon":"","created":"2025-06-24T21:58:53.267+09:00","updated":"2025-07-13T21:30:48.909+09:00"}
 ---
 
 

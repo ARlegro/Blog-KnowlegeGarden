@@ -1,10 +1,8 @@
 ---
-{"dg-publish":true,"permalink":"/retrospect/0625-design-db-and-schema-security/","noteIcon":"","created":"2025-07-06T16:36:48.488+09:00","updated":"2025-07-13T21:31:09.728+09:00"}
+{"dg-publish":true,"permalink":"/Retrospect/0625 - Design DB and Schema + security❓/","noteIcon":"","created":"2025-07-06T16:36:48.488+09:00","updated":"2025-07-13T21:32:38.004+09:00"}
 ---
 
 > 지난 일기 [[Retrospect/0624 Help project\|0624 Help project]]
-
-
 
 
 지난 번에 도와주기로 하며 어제 밤에 DB설계를 완성해놨다.

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Virtual_Memory/Virtual Memory/","noteIcon":"","created":"2025-07-13T17:00:57.171+09:00","updated":"2025-08-21T15:21:20.800+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Virtual_Memory/Virtual Memory/","noteIcon":"","created":"2025-07-13T17:00:57.171+09:00","updated":"2025-09-05T02:41:19.678+09:00"}
 ---
 
 #메모리_관리_기법 
@@ -166,7 +166,6 @@
 
 
 ---
-
 ### 해결 1. 메모리 부족 해결 - 가상 주소 방식의 Swapping
 >[!QUESTION] 문제 상황 : 매핑 과정에서 실제 RAM 공간보다 더 많은 데이터에 접근하려고 하면?
 >- 당장 급하지 않은 데이터를 다른 곳에 저장!!(ex. HDD, SSD) By OS
@@ -191,15 +190,16 @@
 ![Pasted image 20250818171859.png](/img/user/supporter/image/Pasted%20image%2020250818171859.png)
 
 
-
 ---
 ### 해결 2. 단편화 문제 해결 - 속임수로 
 
+---
 #### 문제 상황
 ![Pasted image 20250818171038.png](/img/user/supporter/image/Pasted%20image%2020250818171038.png)
 - 물리적 메모리 용량은 충분한데 연속된 큰 공간이 부족해서 프로그램을 Load하지 못하는 상황
 - **프로그램의 실행 조건 : 연속된 주소 공간 요구 ⭐**
 
+---
 #### 가상 주소의 속임수 
 > 프로그램이 연속 가상 주소 공간 요청 ➡가상 주소 공간에서 연속된 주소 확보 
 - *실제 물리 메모리*에는 **조각된 공간을 매핑**하지만,
@@ -211,6 +211,7 @@
 >- 메모리 공간에 여러 블록들을 임의로 막 배열하다보면 자잘자잘하게 남는 공간들이 생길 것이다.
 >- 이로 인해 **총 메모리 용량은 충분하지만, 연속적인 큰 블록이 없어서 새로운 프로세스를 수용할 수 없는 현상**이 발생.
 
+---
 #### 단편화 된 것을 재조립 
 > 가상 메모리의 페이징 기법은 외부 단편화를 발생시키지 않는다.
 
@@ -219,7 +220,7 @@
 - 물리 메모리에서는 작은 빈 공간들이 흩어져 있어도 이를 **재조합하여 프레임단위로 만들고 프로그램 실행**한다 Cuz 프로세스는 연속된 공간을 요구하지 않기 때문 
 ![Pasted image 20250819190148.png](/img/user/supporter/image/Pasted%20image%2020250819190148.png)
 
-
+---
 ### 해결 3. 안정성/보안 문제 해결 
 
 #### 해결 방식 
@@ -233,7 +234,7 @@
 > [!WARNING] 완벽한 분리는 아니다
 > - 의도적으로 프로세스간 데이터를 공유하려고 같은 물리 주소로 변환시키기도 함  ex. 공유 라이브러리
 
-
+---
 #### 참고 : 커널 영역 가상 메모리 일부는 하나를 가리킴 
 >⭐사실 모든 프로세스에게 부여된 Kernel 영역 가상 메모리의 일부는 **실제로는 하나이다**
 
@@ -312,8 +313,10 @@
 - 너무 간단한거라 Pass
 
 ---
-
+---
 ## 2. 가상 메모리 페이징 
+
+참고 : [[Computer_Science/Virtual_Memory/Virtual Memory\|Virtual Memory]]
 
 ### 페이징 기법❓ 
 > *가상 주소를 물리 주소로 매핑하는 메모리 관리 기법*
@@ -323,7 +326,7 @@
 - ![Pasted image 20250730190220.png](/img/user/supporter/image/Pasted%20image%2020250730190220.png)
 	- 이 배열에 stack, heap, 커널 코드 모두 그 안에 들어있음
 
-
+---
 ### 페이지 테이블 
 > 페이지 테이블이란? **논리 주소를 물리 주소로 매핑**하기 위해 사용하는 자료구조 
 
@@ -341,13 +344,14 @@
 TLB는 뒤에서 배우니 나중에 공부 ㄱ 
 (참고 : https://www.youtube.com/watch?v=A9WLYbE0p-I)
 
-
+---
 ### Page Fault - 디스크로의 접근
 
 > RAM에 찾고자 하는 데이터가 없을 때 발생하는 예외 
 
 *Page Hit ↔ Page Fault*
 
+---
 #### 발생하는 상황 
 *Page Fault 발생하기까지* 
 1. **CPU는** 페이지 테이블에 **특정 페이지를 요청**한다
@@ -357,6 +361,7 @@ TLB는 뒤에서 배우니 나중에 공부 ㄱ
 
 ➡ 이 때 발생하는 예외가 "**Page Fault**"
 
+---
 #### Page Fault의 심각성 💢
 
 > Page Fault는 가상 메모리 시스템에서 불가피하게 발생. But **발생 빈도가 높으면 성능에 치명적**
@@ -377,7 +382,7 @@ TLB는 뒤에서 배우니 나중에 공부 ㄱ
 > 	- 디스크 I/O는 엄청 느린데 **공용 자원이라, 다른 프로세스도 영향 받음**
 > 	- 이로 인해, 시스템 **전체의 병목**이 발생 ➡ 시스템 전체 응답 성능이 떨어짐
 
-
+---
 #### 어떻게 해결?
 #OS가_처리  #페지이교체정책 
 
@@ -404,10 +409,11 @@ TLB는 뒤에서 배우니 나중에 공부 ㄱ
 	- CPU가 데이터를 직접 복사하지 않고 CPU내의 **DMA(Direct Memory Access)가 디스크 ↔ RAM간 전송을 맡음** 
 	- CPU는 **페이지 교체 동안 다른 작업 가능** ➡ **CPU 활용률 극대화** 
 
-
+---
 ### 단일 메모리 접근의 한계
 >[!EXAMPLE] 참고 : 페이지 테이블은 RAM에 저장되어 있음
 
+---
 #### 1. 비싼 램 접근 비용 - 2번 접근 必
 ![Pasted image 20250819151251.png](/img/user/supporter/image/Pasted%20image%2020250819151251.png)
 - 가상 주소만 갖고 있는 CPU는 RAM에 2번 접근이 필요하다 
@@ -416,16 +422,20 @@ TLB는 뒤에서 배우니 나중에 공부 ㄱ
 	   
 - 정리 : 물리 위치 찾기 위해 + 실제 물리 위치 접근 
 
+---
 #### 2. 공간 낭비 
 - **프로세스별 Page Table을 생성**해 놓으면 엄청난 **공간 낭비**가 생긴다.
 - 실제 프로세스가 **모든 Page Table 공간을 쓰지 않기에 심한 낭비** 발생 💢
 
 > 이를 해결하고자 TLB or MLT(Multy Level Table) 방법이 생김 
 
+
+---
 ## 단일 메모리 단점 해결 방안 1 - TLB
 
 *등장 배경 = 위의 단일 메모리 접근의 한계*
 
+---
 ### TLB란?
 Translation Lookaside Buffer
 #주소변환캐시 
@@ -457,7 +467,7 @@ Translation Lookaside Buffer
 		- 이렇게 고급 기능은 비쌈 
 		- 그래서 많은 용량을 담을 수 없음 
 		
-
+---
 ### TLB Hit vs TLB Miss
 
 1. *TLB Hit* 
@@ -487,16 +497,18 @@ Translation Lookaside Buffer
 > [!INFO] Context Switching 시 TLB 캐시는 사라진다.
 > - 새로운 프로세스를 위해 TLB를 초기화 시킴 
 
+---
 ### TLB와 메모리 접근 과정 
 참고 : [TLB 페이징](https://www.youtube.com/watch?v=5goAc3cXWS4)
 
 ![Pasted image 20250819152632.png](/img/user/supporter/image/Pasted%20image%2020250819152632.png)
 
  
-
+---
 ### 추가 : TLB Hit 율 높이는 방법
 > 동일 페이지 연속 Hit 시 ➡ Page Table 접근할 필요 없어짐 ➡ 성능 향상 
 
+---
 #### 방법 1. TLB 항목 수를 늘리기 
 
 ✅장점 
@@ -505,6 +517,7 @@ Translation Lookaside Buffer
 💢단점 
 - 💢대신 비용이 많이 듦  
 
+---
 #### 방법 2. TLB 내 페이지 크기 늘리기 
 
 ✅장점 
@@ -516,14 +529,13 @@ Translation Lookaside Buffer
 
 > 이런 방법들을 적절하게 사용할 수 있게 해주는 기준 = TLB 도달 범위  <<< 필요하면 공부 ㄱ 
 
-
+---
 ### TLB의 한계 
-
 여전히 TLB에 로드되어도 디스크에 있는 페이지 접근 요청 시 Page Fault는 발생한다
-
 
 
 ## 단일 메모리 단점 해결 방안 2 - MPT
 MPT = Multi-level Page Tables 
+참고 : [[Computer_Science/Virtual_Memory/페이지 설정\|페이지 설정]]
 
 

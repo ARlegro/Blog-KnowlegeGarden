@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos 전체 후기/","noteIcon":"","created":"2025-10-14T22:10:47.168+09:00","updated":"2025-10-15T23:54:25.201+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos 전체 후기/","noteIcon":"","created":"2025-10-14T22:10:47.168+09:00","updated":"2025-10-15T23:54:40.109+09:00"}
 ---
 
 
@@ -86,7 +86,7 @@ Pintos라는 문제를 풀다보면 굉장히 다양한 능력을 요구한다.
 
 ---
 ### 3.3.  Pintos로 얻은 것들 
-Pintos는 나에게 세 가지를 남겼다.
+Pintos는 나에게 몇가지를 남겼다
 
 솔직히 개발 공부를 하면서 매 순간 성장한다고 느끼지만 크게 Jump하는 것을 체감이 된 적은 거의 없었다. 근데 이번 프로젝트에서 그 느낌을 쎄게 받았다.
 

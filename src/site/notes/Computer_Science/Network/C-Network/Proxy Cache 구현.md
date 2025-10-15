@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Network/C-Network/Proxy Cache 구현/","noteIcon":"","created":"2025-09-03T00:44:46.676+09:00","updated":"2025-09-05T02:22:56.909+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Network/C-Network/Proxy Cache 구현/","noteIcon":"","created":"2025-09-03T00:44:46.676+09:00","updated":"2025-09-05T21:13:50.167+09:00"}
 ---
 
 
@@ -171,7 +171,6 @@ void cache_evict(const int need_size){
         
 5. **메모리 해제**
     - 블록이 가지고 있던 데이터(`buf`), URI 문자열(`uri`), 블록 구조체(`old`)까지 해제.
-
 
 
 ### 4. cache_insert 

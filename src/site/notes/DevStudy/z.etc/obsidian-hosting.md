@@ -1,12 +1,12 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/z.etc/obsidian-hosting/","noteIcon":"","created":"2025-06-05T08:57:21.205+09:00","updated":"2025-07-10T18:08:11.312+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/z.etc/obsidian-hosting/","noteIcon":"","created":"2025-06-05T08:57:21.205+09:00","updated":"2025-10-13T13:22:33.601+09:00"}
 ---
 
 
 옵시디언으로 메모하다가 다른 블로그에 옮길 때, 깨지는게 심하다. 그리고 내가 원하는 테마가 적용안되는 것e이 너무 불편했다.
 이러한 문제를 해결하고자 간단하게 나마 옵시디언으로 블로그를 구축하는 방법을 배울 것 
 
-### 전체 구조 
+### 0.1.  전체 구조 
 >옵시디언 전용 웹사이트 만들때 필요한 3가지 
 
 1. Markdwon 파일
@@ -16,7 +16,7 @@
 <br>
 ## 과정 
 
-### 기본 과정 
+### 0.2.  기본 과정 
 1. 깃허브 계정과 netlify 연동
 2. Digital Garden 플러그인 설치
 3. 배포 
@@ -32,7 +32,7 @@
 5. Obsidian과 Github연동
 
 
-### Public 노트 추가 
+### 0.3.  Public 노트 추가 
 
 디지털 가든 플러그인에는 두 가지 중요한 기능이 있다:
 
@@ -44,12 +44,12 @@
 - `dg-publish`: 체크박스 형태로 추가
 - `dg-home`: 체크박스 형태로 추가
 
-#### 새 노트를 만들고 add 속성 
+#### 0.3.1.  새 노트를 만들고 add 속성 
 ![Pasted image 20250506125101.png](/img/user/supporter/image/Pasted%20image%2020250506125101.png)
 > 명령 팔레트 : Publish Single Note 하면 그 노트 페이지 배포된다.
 
 
-## 커스터 마이징 하기 
+## 1.  커스터 마이징 하기 
 
 >	plugin 세팅 ➡` `features ➡ global note settings
 

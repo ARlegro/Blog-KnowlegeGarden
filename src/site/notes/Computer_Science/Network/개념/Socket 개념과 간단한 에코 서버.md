@@ -57,7 +57,7 @@ extern int socket (int __domain, int __type, int __protocol) __THROW;
 		- 거의 0을 넣는다 (앞에 2개 파람은 지정)
 
 
-*Return* : 파일 디스크립터 (참고 : [[파일 디스크립터\|파일 디스크립터]])
+*Return* : 파일 디스크립터 (참고 : [[Computer_Science/Network/네트워크 C 함수들 정리/파일 디스크립터\|파일 디스크립터]])
 
 ---
 ### 소켓 주소 구조체 

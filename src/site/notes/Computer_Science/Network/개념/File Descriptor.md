@@ -1,14 +1,14 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Network/개념/File Descriptor/","noteIcon":"","created":"2025-09-02T19:08:06.242+09:00","updated":"2025-09-05T02:31:40.215+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Network/개념/File Descriptor/","noteIcon":"","created":"2025-09-02T19:08:06.242+09:00","updated":"2025-10-05T20:25:29.240+09:00"}
 ---
 
 
 
-### 파일 디스크립터(FD, File Descriptor)
+### 0.1.  파일 디스크립터(FD, File Descriptor)
 #식별자 
-
+![Pasted image 20250924172351.png](/img/user/supporter/image/Pasted%20image%2020250924172351.png)
 ---
-#### 개념 
+#### 0.1.1.  개념 
 > 열린 file/자원을 가리키는 정수 번호 = 식별자 
 
 운영체제에서 프로세스가 어떤 파일(혹은 자원)을 열면, **정수 번호 하나**를 반환하는데, 이 번호가 바로 **파일 디스크립터(File Descriptor, FD)** 
@@ -22,7 +22,7 @@ int fd = open("data.txt", O_RDONLY);
 >UNIX의 모든 객체들은(정규파일, 소켓, 파이프 등) 모두 "파일"로써 관리됨 
 
 ---
-#### 얻게 되는 과정 
+#### 0.1.2.  얻게 되는 과정 
 `int fd = open("data.txt", O_RDONLY)`
 1. 프로세스가 `open()` 시스템 콜을 호출	  
 2. Kernel은 파일 테이블에 **해당 파일에 대한 정보를 만든다**
@@ -36,7 +36,7 @@ int fd = open("data.txt", O_RDONLY);
 예를 들어, 프로세스가 특정 입출력 자원과 통신할 때 OS는 File Descriptor라는 식별자 핸들을 준다.
 
 ---
-#### FD의 장점 
+#### 0.1.3.  FD의 장점 
 1. **추상화된 인터페이스**
     - `read(fd, buf, size)`, `write(fd, buf, size)`만 알면 됨.
     - 개발자는 디스크인지, 소켓인지 신경 쓸 필요 없음.

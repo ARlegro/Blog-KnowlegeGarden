@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Virtual_Memory/Virtual Memory/","noteIcon":"","created":"2025-07-13T17:00:57.171+09:00","updated":"2025-09-05T02:41:19.678+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Virtual_Memory/Virtual Memory/","noteIcon":"","created":"2025-07-13T17:00:57.171+09:00","updated":"2025-09-08T13:58:32.972+09:00"}
 ---
 
 #메모리_관리_기법 
@@ -359,7 +359,7 @@ TLB는 뒤에서 배우니 나중에 공부 ㄱ
 	![Pasted image 20250819000807.png](/img/user/supporter/image/Pasted%20image%2020250819000807.png)
 3. **CPU는 예외를 터트린다** Cuz CPU는 그것을 읽는 방법을 몰름
 
-➡ 이 때 발생하는 예외가 "**Page Fault**"
+7➡ 이 때 발생하는 예외가 "**Page Fault**"
 
 ---
 #### Page Fault의 심각성 💢

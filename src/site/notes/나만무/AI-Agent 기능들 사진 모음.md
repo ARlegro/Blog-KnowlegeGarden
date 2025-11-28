@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/나만무/AI-Agent 기능들 사진 모음/","noteIcon":"","created":"2025-11-27T01:05:02.281+09:00","updated":"2025-11-27T17:24:04.010+09:00"}
+{"dg-publish":true,"permalink":"/나만무/AI-Agent 기능들 사진 모음/","noteIcon":"","created":"2025-11-27T01:05:02.281+09:00","updated":"2025-11-28T10:29:51.974+09:00"}
 ---
 
 
@@ -19,10 +19,11 @@
 ![Pasted image 20251127011559.png](/img/user/supporter/image/Pasted%20image%2020251127011559.png)
 
 
+### 0.6.  서비스 내 사람들이 많이 가는 장소 추천
+![Pasted image 20251127012118.png](/img/user/supporter/image/Pasted%20image%2020251127012118.png)
+
+
+
 ### 0.5.  리뷰 기능 
 
 
-
-
-### 0.6.  서비스 내 사람들이 많이 가는 장소 추천
-![Pasted image 20251127012118.png](/img/user/supporter/image/Pasted%20image%2020251127012118.png)

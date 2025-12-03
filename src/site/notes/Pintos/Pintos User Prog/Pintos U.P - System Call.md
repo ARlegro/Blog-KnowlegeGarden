@@ -1,11 +1,11 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos User Prog/Pintos U.P - System Call/","noteIcon":"","created":"2025-12-03T12:41:04.555+09:00","updated":"2025-12-03T13:16:49.371+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos User Prog/Pintos U.P - System Call/","noteIcon":"","created":"2025-12-03T16:03:22.652+09:00","updated":"2025-12-03T16:10:51.514+09:00"}
 ---
 
 
 
 
-### 목차
+### 0.1.  목차
 
 - [[#1.  시작|1.  시작]]
 	- [[#1.  시작#1.1.  개념|1.1.  개념]]
@@ -86,10 +86,10 @@ User Progrma은 직접 H/W나 커널 내부에 접근할 수 없다.<br>
 	- 부모 : 새로 생성된 자식의 PID를 반환
 	- 자식 : 0을 반환 
 
-- *구현 및 트러블 슈팅* : [[Pintos/Pintos User Prog/Fork 구현 흐름 정리 및 트러블 슈팅 정리\|Fork 구현 흐름 정리 및 트러블 슈팅 정리]]
+- *구현 및 트러블 슈팅* : [[Pintos/Pintos User Prog/Pintos U.P - Fork 구현 흐름 정리 및 트러블 슈팅 정리\|Fork 구현 흐름 정리 및 트러블 슈팅 정리]]
 
 >[!tip] 
->자세한거는 fork 정리 및 트러블 슈팅 - [[Pintos/Pintos User Prog/Fork 구현 흐름 정리 및 트러블 슈팅 정리\|Fork 구현 흐름 정리 및 트러블 슈팅 정리]] 참고
+>자세한거는 fork 정리 및 트러블 슈팅 - [[Pintos/Pintos User Prog/Pintos U.P - Fork 구현 흐름 정리 및 트러블 슈팅 정리\|Fork 구현 흐름 정리 및 트러블 슈팅 정리]] 참고
 
 
 ### 2.4.  exec
@@ -101,8 +101,7 @@ User Progrma은 직접 H/W나 커널 내부에 접근할 수 없다.<br>
 - *일부 자원 유지*
 	- open되어있는 FD같은 일부 커널 자원은 그대로 유지된다.
 
-트러블 슈팅 내용 정리 = [[Pintos/Pintos User Prog/Pintos U.P - Exec 시스템 콜 구현 및 트러블 슈팅\|Pintos U.P - Exec 시스템 콜 구현 및 트러블 슈팅]]
-
+트러블 슈팅 내용 정리
 
 
 ### 2.5.  open 

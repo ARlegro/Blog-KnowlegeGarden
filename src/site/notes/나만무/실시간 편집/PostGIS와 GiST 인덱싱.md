@@ -1,7 +1,6 @@
 ---
-{"dg-publish":true,"permalink":"/나만무/실시간 편집/PostGIS와 GiST 인덱싱/","noteIcon":"","created":"2025-11-29T00:42:08.139+09:00","updated":"2025-11-29T00:43:58.300+09:00"}
+{"dg-publish":true,"permalink":"/나만무/실시간 편집/PostGIS와 GiST 인덱싱/","noteIcon":"","created":"2025-11-27T16:55:02.753+09:00","updated":"2025-12-04T14:44:39.425+09:00"}
 ---
-
 
 
 > [!INFO] Preview

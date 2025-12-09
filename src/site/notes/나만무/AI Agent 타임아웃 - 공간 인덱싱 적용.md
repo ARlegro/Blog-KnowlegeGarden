@@ -1,7 +1,6 @@
 ---
-{"dg-publish":true,"permalink":"/나만무/AI Agent 타임아웃 - 공간 인덱싱 적용/","noteIcon":"","created":"2025-11-27T16:55:02.591+09:00","updated":"2025-12-09T13:32:53.233+09:00"}
+{"dg-publish":true,"permalink":"/나만무/AI Agent 타임아웃 - 공간 인덱싱 적용/","noteIcon":"","created":"2025-11-27T16:55:02.591+09:00","updated":"2025-12-09T13:35:34.170+09:00"}
 ---
-
 
 
 ### 0.1.  목차
@@ -21,6 +20,7 @@
 	- [[#1.  Focus 이벤트 시 데이터 가져올 때 공간인덱싱 여부에 따른 성능 비교#1.3.  ✅ 공간인덱싱 타게 한 연산|1.3.  ✅ 공간인덱싱 타게 한 연산]]
 	- [[#1.  Focus 이벤트 시 데이터 가져올 때 공간인덱싱 여부에 따른 성능 비교#1.4.  관찰 결과|1.4.  관찰 결과]]
 	- [[#1.  Focus 이벤트 시 데이터 가져올 때 공간인덱싱 여부에 따른 성능 비교#1.5.  정리|1.5.  정리]]
+	- [[#1.  Focus 이벤트 시 데이터 가져올 때 공간인덱싱 여부에 따른 성능 비교#1.6.  번외 - 성능 분산 원리|1.6.  번외 - 성능 분산 원리]]
 
 
 > 공간 인덱싱(PostGIS)을 도입하게 되기까지의 기록 
@@ -171,13 +171,64 @@ ON places USING GIST (location);
 
 
 
-# 다른 테스트 
-
-## 1.  Focus 이벤트 시 데이터 가져올 때 공간인덱싱 여부에 따른 성능 비교 
+## 5.  지도 뷰포트(Zoom/Drag) 조회 성능 안정화
 > 소켓으로 줌 인/아웃 및 지도 이동(focus) 이벤트가 발생할 때마다,  **현재 뷰포트(bounding box) 안에 있는 장소를 조회**하는 로직의 성능을 비교했다.
 
+### 5.1.  Previw - 결론
 
-### 1.1.  공통 조건
+**`ST_Intersects`** 및 **`ST_MakeEnvelope`** 함수를 GiST 인덱스와 함께 사용하도록 최적화
+
+| **구분**     | **기존 방식 (Latitude/Longitude BETWEEN 사용)** | **개선 방식 (ST_Intersects + GiST 인덱스)**    |
+| ---------- | ----------------------------------------- | --------------------------------------- |
+| **성능 편차**  | 뷰포트가 클 때 **900ms까지 튀는 스파이크** 발생           | **대부분 20~80ms** 구간에 안정화                 |
+| **사용자 체감** | 성능 편차가 커서 예측 불가능하고 불안정                    | **평균 응답 및 분산이 크게 줄어** 일관되고 예측 가능한 성능 확보 |
+```ts
+  async getPlacesInBounds(dto: GetPlacesReqDto): Promise<GetPlacesResDto[]> {
+    const {
+      southWestLatitude,
+      southWestLongitude,
+      northEastLatitude,
+      northEastLongitude,
+    } = dto;
+  
+    const places: Place[] = await this.placeRepo
+      .createQueryBuilder('p')
+      .where(
+	      // 여기 
+        `ST_Intersects(
+      p.location, ST_MakeEnvelope(:southWestLongitude, :southWestLatitude, :northEastLongitude, :northEastLatitude))`,
+        {
+          southWestLongitude,
+          southWestLatitude,
+          northEastLongitude,
+          northEastLatitude,
+        },
+      )
+      .limit(20)
+      .getMany();
+    return places.map((place) => GetPlacesResDto.from(place));
+  }
+```
+
+*뷰포트(Focus) 기반 조회 성능 - Between vs ST_Intersects*
+- 지도 Focus 이벤트마다 
+- **기존 Between 방식**
+    - 작은 범위 / 기존 조회 근처: 20~30ms 수준으로 그럭저럭 양호
+    - 뷰포트를 크게 움직이거나, 완전히 다른 지역으로 점프, 아주 넓은 영역 조회 시 **수백 ms ~ 900ms까지 튀는 스파이크** 관찰
+    - 성능 편차가 크고 예측 가능성이 낮아지는 문제가 존재.
+        
+- **PostGIS ST_Intersects + GiST 인덱스**
+    - 대부분 케이스: **20~80ms 사이**에 응답
+    - 좁은 뷰포트에서는 **Between과 거의 동일한 속도(20~40ms)**
+    - 근처로 살짝 이동하는 일반적인 줌/드래그 상황에서는 **거의 항상 20~40ms 선에 수렴**
+    - 아주 넓은 범위를 한 번에 조회하는 극단 케이스에서만 수백 ms 구간이 일부 존재하나, Between처럼 900ms까지 폭발하는 케이스가 크게 줄음
+    - **평균 응답 및 분산이 크게 줄어 체감 성능이 안정화**
+
+
+
+
+
+### 5.2.  공통 조건
 - 트리거: 클라이언트에서 `PLACE_FOCUS` 이벤트 발생 시마다 서버에서 DB 조회
 - 입력: `southWestLatitude`, `northEastLatitude`, `southWestLongitude`, `northEastLongitude`
 - 출력: 현재 bounds 안의 `Place` 최대 20개
@@ -194,7 +245,7 @@ console.log(
 );
 ```
 
-### 1.2.  💢 기존 방식 – `Between` 연산으로 위경도 필터링
+### 5.3.  💢 기존 방식 – `Between` 연산으로 위경도 필터링
 
 *기존 - Between 연산 사용*
 ```js
@@ -239,7 +290,7 @@ LIMIT 20;
 - 내부적으로 **많은 row를 스캔**하게 되고,
 - 그 결과, 뷰포트가 크게 움직이는 경우 성능이 급격히 나빠지는 모습이다.
 
-### 1.3.  ✅ 공간인덱싱 타게 한 연산
+### 5.4.  ✅ 공간인덱싱 타게 한 연산
 ```JS
     const t0 = performance.now();
     const places: Place[] = await this.placeRepo
@@ -267,7 +318,7 @@ WHERE ST_Intersects(
 )
 LIMIT 20;
 ```
-### 1.4.  관찰 결과
+### 5.5.  관찰 결과
 
 - **대부분의 케이스**:
     - **20~80ms 사이**에서 안정적으로 응답
@@ -289,7 +340,7 @@ LIMIT 20;
 - 일부 극단 케이스를 제외하면 대부분 20~80ms에 몰려 있음.
 
 
-### 1.5.  정리 
+### 5.6.  정리 
 
 기존에는 단순히 `latitude/longitude`에 `Between` 조건을 사용하는 방식으로 뷰포트 내 장소를 조회했는데, 좁은 범위에서는 빠르게 응답하지만 지도 이동 폭이 커지면 최대 900ms까지 지연이 튀는 문제가 있었다.
 
@@ -298,7 +349,7 @@ LIMIT 20;
 그 결과, 대부분 케이스에서 응답 시간이 20~80ms 수준으로 안정화되었고, 실제 줌 인/아웃, 드래그 기반 탐색 시 체감 성능이 크게 개선되었다. 다만 극단적으로 넓은 범위를 한 번에 조회하는 경우에는 여전히 수백 ms 단위의 스파이크가 관측되어, 향후 다른 방법의 최적화를 생각해봐야 할 것 같다.(지금은 AI Agent 기능만으로 너무 바빠서 ㅠ)`
 
 
-### 1.6.  번외 - 성능 분산 원리 
+### 5.7.  번외 - 성능 분산 원리 
 >[!QUESTION] 왜 GIST 인덱싱할 때 성능 분산이 줄었는가?
 
 

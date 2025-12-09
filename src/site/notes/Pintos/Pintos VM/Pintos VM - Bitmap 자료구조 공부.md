@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - Bitmap 자료구조 공부/","noteIcon":"","created":"2025-10-08T11:46:53.199+09:00","updated":"2025-10-15T16:22:38.732+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - Bitmap 자료구조 공부/","noteIcon":"","created":"2025-12-03T14:52:52.885+09:00","updated":"2025-12-09T17:19:49.193+09:00"}
 ---
 
 

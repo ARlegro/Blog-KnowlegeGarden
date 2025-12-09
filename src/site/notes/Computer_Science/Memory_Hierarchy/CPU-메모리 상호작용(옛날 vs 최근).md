@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Memory_Hierarchy/CPU-메모리 상호작용(옛날 vs 최근)/","noteIcon":"","created":"2025-08-13T09:28:02.761+09:00","updated":"2025-08-18T01:04:50.156+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Memory_Hierarchy/CPU-메모리 상호작용(옛날 vs 최근)/","noteIcon":"","created":"2025-12-03T14:52:45.541+09:00","updated":"2025-12-09T17:19:41.818+09:00"}
 ---
 
 

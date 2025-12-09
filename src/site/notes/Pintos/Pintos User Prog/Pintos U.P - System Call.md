@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos User Prog/Pintos U.P - System Call/","noteIcon":"","created":"2025-12-03T16:03:22.652+09:00","updated":"2025-12-03T16:10:51.514+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos User Prog/Pintos U.P - System Call/","noteIcon":"","created":"2025-12-03T16:03:22.652+09:00","updated":"2025-12-03T17:31:37.815+09:00"}
 ---
 
 
@@ -102,7 +102,7 @@ User Progrma은 직접 H/W나 커널 내부에 접근할 수 없다.<br>
 	- open되어있는 FD같은 일부 커널 자원은 그대로 유지된다.
 
 트러블 슈팅 내용 정리
-
+[[Pintos/Pintos User Prog/Pintos U.P - Exec 시스템 콜 구현 및 트러블 슈팅\|Pintos U.P - Exec 시스템 콜 구현 및 트러블 슈팅]]
 
 ### 2.5.  open 
 > 파일을 열고 파일 디스크립터를 획득한다.

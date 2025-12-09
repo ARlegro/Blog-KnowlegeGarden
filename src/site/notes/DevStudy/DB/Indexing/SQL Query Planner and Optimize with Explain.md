@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/DB/Indexing/SQL Query Planner and Optimize with Explain/","noteIcon":"","created":"2025-06-08T21:09:37.231+09:00","updated":"2025-12-08T17:28:35.839+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/DB/Indexing/SQL Query Planner and Optimize with Explain/","noteIcon":"","created":"2025-12-09T17:19:47.385+09:00","updated":"2025-12-09T17:19:47.386+09:00"}
 ---
 
 > PostgreSQL 관점 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/DB/Postgre's TYPE/Postgre's VARCHAR vs TEXT/","noteIcon":"","created":"2025-06-12T13:06:38.467+09:00","updated":"2025-12-08T17:29:38.159+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/DB/Postgre's TYPE/Postgre's VARCHAR vs TEXT/","noteIcon":"","created":"2025-12-09T17:19:47.463+09:00","updated":"2025-12-09T17:19:47.464+09:00"}
 ---
 
 

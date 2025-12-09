@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - Swapping/","noteIcon":"","created":"2025-10-13T15:20:26.854+09:00","updated":"2025-10-15T16:25:03.792+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - Swapping/","noteIcon":"","created":"2025-12-03T14:52:52.777+09:00","updated":"2025-12-09T17:19:49.246+09:00"}
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - initializer들만 따로 보기/","noteIcon":"","created":"2025-09-30T23:08:00.592+09:00","updated":"2025-10-15T16:23:08.728+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - initializer들만 따로 보기/","noteIcon":"","created":"2025-12-03T14:52:52.760+09:00","updated":"2025-12-09T17:19:49.262+09:00"}
 ---
 
 ### 0.1.  목차

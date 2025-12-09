@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - Memory Mapped Files 개념 정리/","noteIcon":"","created":"2025-10-13T19:30:31.780+09:00","updated":"2025-10-15T16:23:17.638+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - Memory Mapped Files 개념 정리/","noteIcon":"","created":"2025-12-03T14:52:52.769+09:00","updated":"2025-12-09T17:19:49.208+09:00"}
 ---
 
 

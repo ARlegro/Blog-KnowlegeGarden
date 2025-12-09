@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/z.etc/obsidian-hosting/","noteIcon":"","created":"2025-06-05T08:57:21.205+09:00","updated":"2025-10-13T13:22:33.601+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/z.etc/obsidian-hosting/","noteIcon":"","created":"2025-12-03T14:52:46.408+09:00","updated":"2025-12-09T17:19:49.020+09:00"}
 ---
 
 

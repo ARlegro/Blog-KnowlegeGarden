@@ -1,12 +1,12 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/C언어, 자료구조, 알고리즘/키워드공부/B -Tree/","noteIcon":"","created":"2025-08-08T10:37:15.761+09:00","updated":"2025-08-18T01:07:44.450+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/C언어, 자료구조, 알고리즘/키워드공부/B -Tree/","noteIcon":"","created":"2025-12-03T14:52:45.784+09:00","updated":"2025-12-09T17:19:41.650+09:00"}
 ---
 
 
 
 자가 균형 탐색 트리의 일종 
 
-참고 자료 : [[DevStudy/DB/Fundamentals of DB engineering/Indexing/Key vs Non-Key column Index\|Key vs Non-Key column Index]]
+참고 자료 : [[DevStudy/DB/Indexing/Key vs Non-Key column Index\|Key vs Non-Key column Index]]
 
 자녀 노드를 3개를 갖고 싶다면?
 

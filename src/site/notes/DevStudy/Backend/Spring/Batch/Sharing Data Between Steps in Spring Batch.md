@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Backend/Spring/Batch/Sharing Data Between Steps in Spring Batch/","noteIcon":"","created":"2025-05-18T00:12:00.140+09:00","updated":"2025-05-18T00:12:00.141+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Spring/Batch/Sharing Data Between Steps in Spring Batch/","noteIcon":"","created":"2025-12-03T14:52:47.621+09:00","updated":"2025-12-09T17:19:45.011+09:00"}
 ---
 
 

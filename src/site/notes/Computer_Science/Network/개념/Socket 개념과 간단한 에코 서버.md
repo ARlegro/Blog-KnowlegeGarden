@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Network/개념/Socket 개념과 간단한 에코 서버/","noteIcon":"","created":"2025-08-28T17:21:01.542+09:00","updated":"2025-09-05T02:25:25.058+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Network/개념/Socket 개념과 간단한 에코 서버/","noteIcon":"","created":"2025-12-03T14:52:46.199+09:00","updated":"2025-12-09T17:19:41.968+09:00"}
 ---
 
 
@@ -57,7 +57,7 @@ extern int socket (int __domain, int __type, int __protocol) __THROW;
 		- 거의 0을 넣는다 (앞에 2개 파람은 지정)
 
 
-*Return* : 파일 디스크립터 (참고 : [[Computer_Science/Network/네트워크 C 함수들 정리/파일 디스크립터\|파일 디스크립터]])
+*Return* : 파일 디스크립터 (참고 : [[파일 디스크립터\|파일 디스크립터]])
 
 ---
 ### 소켓 주소 구조체 
@@ -107,6 +107,7 @@ struct sockaddr_in
          - sizeof (struct in_addr)];
   };
 ```
+
 ```C
 // ✅사용 
 #include <sys/socket.h>

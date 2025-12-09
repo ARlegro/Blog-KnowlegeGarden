@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Network/개념/Proxy 서버 개념/","noteIcon":"","created":"2025-08-31T12:30:54.745+09:00","updated":"2025-09-05T02:25:57.081+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Network/개념/Proxy 서버 개념/","noteIcon":"","created":"2025-12-03T14:52:46.220+09:00","updated":"2025-12-09T17:19:41.959+09:00"}
 ---
 
 

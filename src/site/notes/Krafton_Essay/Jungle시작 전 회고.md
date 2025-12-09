@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Krafton_Essay/Jungle시작 전 회고/","noteIcon":"","created":"2025-07-10T18:23:59.468+09:00","updated":"2025-10-15T19:00:57.515+09:00"}
+{"dg-publish":true,"permalink":"/Krafton_Essay/Jungle시작 전 회고/","noteIcon":"","created":"2025-12-06T12:52:17.738+09:00","updated":"2025-12-09T17:19:49.129+09:00"}
 ---
 
 

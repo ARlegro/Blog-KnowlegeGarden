@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/DB/Indexing/Index Scan VS Index-Only Scan/","noteIcon":"","created":"2025-06-09T13:01:43.125+09:00","updated":"2025-12-08T17:27:25.087+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/DB/Indexing/Index Scan VS Index-Only Scan/","noteIcon":"","created":"2025-12-09T17:19:47.361+09:00","updated":"2025-12-09T17:19:47.363+09:00"}
 ---
 
 

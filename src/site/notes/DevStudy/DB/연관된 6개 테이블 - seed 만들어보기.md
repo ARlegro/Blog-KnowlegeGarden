@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/DB/연관된 6개 테이블 - seed 만들어보기/","noteIcon":"","created":"2025-06-12T13:06:38.479+09:00","updated":"2025-12-08T17:24:12.605+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/DB/연관된 6개 테이블 - seed 만들어보기/","noteIcon":"","created":"2025-12-09T17:19:47.524+09:00","updated":"2025-12-09T17:19:47.525+09:00"}
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Retrospect/0611~0706/0625 - Design DB and Schema + security❓/","noteIcon":"","created":"2025-07-06T16:36:48.488+09:00","updated":"2025-07-13T21:32:38.004+09:00"}
+{"dg-publish":true,"permalink":"/Retrospect/0611~0706/0625 - Design DB and Schema + security❓/","noteIcon":"","created":"2025-12-03T14:52:53.118+09:00","updated":"2025-12-09T17:19:49.500+09:00"}
 ---
 
 > 지난 일기 [[Retrospect/0611~0706/0624 Help project\|0624 Help project]]
@@ -251,7 +251,7 @@ ALTER TABLE clothes_attributes
 ```
 
 --- 
-### 솔직한 시간을 갖다
+### 0.1.  솔직한 시간을 갖다
 이렇게 DB설계랑, Schema를 짜줬으니 알아서 하겠지?라고 생각했다.
 입원한 1명을 제외하고 다른 3명에게 '제가 이제 더 이상 개입하면 안될 것 같으니 이정도만 하고 이제 여러분들이 다들 그라운드 룰, 깃허브 전략 이런 기본적인 룰들부터 정하시면 된다'라고 했다.
 근데 문제가 다들 한 3분? 얘기하시더니 전혀 진행이 안되고 있었다???

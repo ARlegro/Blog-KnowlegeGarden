@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/DB/Indexing/Partial Index in Postgres/","noteIcon":"","created":"2025-11-27T16:54:59.719+09:00","updated":"2025-12-08T17:28:02.208+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/DB/Indexing/Partial Index in Postgres/","noteIcon":"","created":"2025-12-09T17:19:47.377+09:00","updated":"2025-12-09T17:19:47.379+09:00"}
 ---
 
 

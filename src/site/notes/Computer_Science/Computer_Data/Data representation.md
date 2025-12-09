@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Computer_Data/Data representation/","noteIcon":"","created":"2025-07-22T23:21:01.151+09:00","updated":"2025-07-24T20:33:21.915+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Computer_Data/Data representation/","noteIcon":"","created":"2025-12-03T14:52:46.258+09:00","updated":"2025-12-09T17:19:41.545+09:00"}
 ---
 
 

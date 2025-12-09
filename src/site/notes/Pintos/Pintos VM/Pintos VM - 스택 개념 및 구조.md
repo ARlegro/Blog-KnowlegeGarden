@@ -1,6 +1,7 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - 스택 개념 및 구조/","noteIcon":"","created":"2025-12-03T00:57:06.589+09:00","updated":"2025-12-03T10:45:02.447+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - 스택 개념 및 구조/","noteIcon":"","created":"2025-12-03T16:03:22.882+09:00","updated":"2025-12-09T17:19:49.318+09:00"}
 ---
+
 
 ## 1.  함수 호출에서의 스택(Call Stack)
 

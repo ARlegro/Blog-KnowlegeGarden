@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Infra/Connect_EC2_by_WSL(feat.SSH)/","noteIcon":"","created":"2025-05-13T17:38:07.218+09:00","updated":"2025-07-10T14:07:07.120+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Infra/Connect_EC2_by_WSL(feat.SSH)/","noteIcon":"","created":"2025-12-03T14:52:51.727+09:00","updated":"2025-12-09T17:19:47.828+09:00"}
 ---
 
 
@@ -8,11 +8,11 @@
 - 컨테이너끼리 포트 공유 시 
 - 주소 접근할때 서비스 명으로 
 
-MONGO_URI=mongodb://jungle:pwd1234//mongo:27017/dbjungle
+`MONGO_URI=mongodb://jungle:pwd1234//mongo:27017/dbjungle`
 
-### 참고 : 사용된 docker 파일들 (설명 전 배경)
+### 0.1.  참고 : 사용된 docker 파일들 (설명 전 배경)
 
-#### Dockerfile
+#### 0.1.1.  Dockerfile
 ```Dockerfile
 FROM python:3.9-slim
 WORKDIR /app
@@ -22,7 +22,7 @@ RUN pip install --no-cache-dir flask pymongo bs4 requests
 CMD ["sh", "-c", "python init_db.py && python app.py"]
 ```
 
-#### docker-compose.yml
+#### 0.1.2.  docker-compose.yml
 ```yaml
 services:
   my-server:
@@ -60,7 +60,7 @@ volumes:
 
 
 
-### 복합적 문제 (포트 + 서버명)
+### 0.2.  복합적 문제 (포트 + 서버명)
 
 > 참고 : - `mongodb://<user>:<password>@<host>:<port>/<database>?authSource=admin`
 
@@ -91,10 +91,10 @@ client = MongoClient("mongodb://jungle:pwd1234@my-mongo:27017/dbjungle")
 - 포트도 내부 포트로 접근하도록 
 
 
-### docker 파일 내부 명령어 설정 (mongodb 헬스체크 + 순차 실행)
+### 0.3.  docker 파일 내부 명령어 설정 (mongodb 헬스체크 + 순차 실행)
 > 검색하면 바로 stackoverflow에 나오는 부분이라 가볍게 패스
 
-#### 몽고DB 헬스체크 
+#### 0.3.1.  몽고DB 헬스체크 
 ```yaml
     healthcheck:
       test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
@@ -104,7 +104,7 @@ client = MongoClient("mongodb://jungle:pwd1234@my-mongo:27017/dbjungle")
       start_period: 5s
 ```
 
-#### 순차 실행
+#### 0.3.2.  순차 실행
  > 일단 특정 파이썬 파일을 실행시키고 그 다음 메인 파일을 실행시켜야 하는 상황 
 
  원래, 단순 하나 였다면 
@@ -118,7 +118,7 @@ CMD ["sh", "-c", "python init_db.py && python app.py]
 ```
 
 
-### 인증관련 문제 
+### 0.4.  인증관련 문제 
 
 앱 실행 도중 발생한 오류
 ```
@@ -166,24 +166,24 @@ client = MongoClient("mongodb://jungle:pwd1234@my-db:27017/dbjungle?authSource=a
 >	- SSH 방법
 >	- 키파일 적용
 
-#### 1. 키 파일 다운로드
+#### 0.4.1.  키 파일 다운로드
 > 다운로드 위치 가정 :  C:\ec2key\jungle.pem 
 
-#### 2. WSL 내 .ssh 폴더 생성 
+#### 0.4.2.  WSL 내 .ssh 폴더 생성 
 ```bash
 mkdir -p ~/.ssh
 ```
 - `-p` : 디렉토리가 없으면 생성, 있으면 무시 
 
 
-#### 3. WSL로 키 파일 복사 - cp 
+#### 0.4.3.  WSL로 키 파일 복사 - cp 
 - cp `[윈도우상 위치] ~/.ssh/`
 ```bash
 cp /mnt/c/ec2key/jungle.pem ~/.ssh/
 ```
 - `/mnt/c/...` : Window 디스크를 wsl에서 접근하는 경로 
 
-#### 4. 키 파일 권한 제한 
+#### 0.4.4.  키 파일 권한 제한 
 - ec2에 보내기 전 키 파일  권한을 제한한다.
 
 > [!INFO] 권한 제한 이유
@@ -203,14 +203,14 @@ ls -l ~/.ssh
 -r-------- 1 root root 1678 May 13 17:36 jungle.pem
 ```
 
-#### 5. EC2에 공개 키 등록 
+#### 0.4.5.  EC2에 공개 키 등록 
 
 ssh 연결에 쓰려는 비밀키의 공개키를 복사해서 ubuntu 서버의 ~/.ssh에 파일로 저장 
 ```bash
 echo "id_ed25519.pub
 ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICubrCDNOTLZE3lglCPWIHjtnT81GSBkeyZtCkJqidGJ icb1696@naver.com" >> ~/.ssh/redis_keys
 ```
-#### 6. EC2 접속 
+#### 0.4.6.  EC2 접속 
 ```bash
 ssh -i [키페어] ubuntu@ec2pulicIp
 

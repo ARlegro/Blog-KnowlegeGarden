@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Argorithm/python/List Comprehension/","noteIcon":"","created":"2025-07-11T21:08:09.039+09:00","updated":"2025-07-21T10:35:35.631+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Argorithm/python/List Comprehension/","noteIcon":"","created":"2025-12-03T14:52:52.407+09:00","updated":"2025-12-09T17:19:42.748+09:00"}
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos User Prog/실제 OS - wait 동기화 매커니즘/","noteIcon":"","created":"2025-12-03T11:23:06.031+09:00","updated":"2025-12-03T11:39:23.812+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos User Prog/실제 OS - wait 동기화 매커니즘/","noteIcon":"","created":"2025-12-03T16:03:22.741+09:00","updated":"2025-12-09T17:19:49.183+09:00"}
 ---
 
 
@@ -8,7 +8,7 @@
 Pintos에서의 wait동기화와 실제 OS가 다른 점을 인지하고 쓴 글 
 
 참고 
-- [[Pintos/Pintos User Prog/Fork 개념 정리 + 좀비 프로세스\|Fork 개념 정리 + 좀비 프로세스]] : 좀비 프로세스
+- [[Pintos/Pintos User Prog/Pintos U.P - Fork 개념 정리 + 좀비 프로세스\|Pintos U.P - Fork 개념 정리 + 좀비 프로세스]]
 
 
 ## 1.  Wait을 통한 부모 - 자식 동기화 
@@ -41,7 +41,7 @@ Pintos에서의 wait동기화와 실제 OS가 다른 점을 인지하고 쓴 글
 
 > Linux에서는 고아 프로세스 처리 매커니즘을 통해 해결한다.
 
-참고 : [[Pintos/Pintos User Prog/Fork 개념 정리 + 좀비 프로세스\|Fork 개념 정리 + 좀비 프로세스]] (고아 프로세스)
+참고 : [[Pintos/Pintos User Prog/Pintos U.P - Fork 개념 정리 + 좀비 프로세스\|Pintos U.P - Fork 개념 정리 + 좀비 프로세스]] (고아 프로세스)
 
 참고 주소에 자세하게 적혀 있지만, 간단하게 애기해보겠다
 - 부모 프로세스가 종료되면 자식은 고아 프로세스가 된다.

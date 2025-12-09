@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/z.etc/Review/Codereview-Coupling/","noteIcon":"","created":"2025-06-05T08:57:21.112+09:00","updated":"2025-06-05T08:57:21.127+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/z.etc/Review/Codereview-Coupling/","noteIcon":"","created":"2025-12-03T14:52:46.552+09:00","updated":"2025-12-09T17:19:48.996+09:00"}
 ---
 
 
@@ -10,8 +10,8 @@
 결합도와 응집도 이 2가지 부분을 공부하면서 내 코드의 결함이 많이 느껴졌다.
 
 
-### 리팩토링 : 스탬프 결합도 ➡ 자료 결합도 
-#### 예시 1. 
+### 0.1.  리팩토링 : 스탬프 결합도 ➡ 자료 결합도 
+#### 0.1.1.  예시 1. 
 
 **결합도가 존재하는 코드 - 스탬프 결홥도**
 ```java
@@ -57,7 +57,7 @@ public static ArticleInterestJdbc create(UUID articleId, UUID interestId) {
 이는 재사용성, 확장성, 리팩토링 내성에 강한 코드로 만들어준다.
 
 
-#### 예시2. 
+#### 0.1.2.  예시2. 
 
 예시1 이랑 똑같은 경우다.
 사실 객체를 전부 넘길 필요가 없다는 것을 알면서도 람다식(::)을 사용하고 싶어서 억지로 만들었었는데, 가독성보다 결합도를 낮추는게 더 중요한 것 같아서 바꾸는 것이 좋을 것 같다.
@@ -104,7 +104,7 @@ public static NotificationJdbc create(UUID userId, Interest interest, Long artic
 ```
 
 
-### 최악의 결합도 - 3달전의 나에게 
+### 0.2.  최악의 결합도 - 3달전의 나에게 
 
 > 결합도의 6단계 중 최악은 `내용 결합도`  이다 `
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Backend/Jpa/@ManyToOne - optional, cascade/","noteIcon":"","created":"2025-05-18T00:12:00.214+09:00","updated":"2025-06-20T21:43:41.618+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Jpa/@ManyToOne - optional, cascade/","noteIcon":"","created":"2025-12-03T14:52:49.418+09:00","updated":"2025-12-09T17:19:43.381+09:00"}
 ---
 
 
@@ -7,7 +7,7 @@
 > 기억이 안 나는 것들이 많아져서 시간 날때 조금씩 복습하기로 했다.<br>
 > 그러던 중 @ManyToOne의 여러 속성과 내부적으로 어떻게 구현이 되고 조건들이 넣어지는지 알아보고 싶어서 공부를 하기로 했다.
 
-## ManyToOne 기본 구조
+## 1.  ManyToOne 기본 구조
 
 JPA가 구현한 manyToOne 인터페이스를 들어가보면 아래의 구조와 같다
 
@@ -84,7 +84,7 @@ public class Child {
     - `null`이면 예외 발생 (`PersistenceException`)
     - 조회 시 **INNER JOIN** 사용
 
-## **optional에 따른 쿼리 차이**
+## 1.  **optional에 따른 쿼리 차이**
 
 optional의 속성값에 따라 조회 쿼리가 달라지는데, 이를 테스트해보면서 알아볼 것
 
@@ -105,7 +105,7 @@ optional의 속성값에 따라 조회 쿼리가 달라지는데, 이를 테스�
   }
 ```
 
-### **1️⃣ Case 1 : optional = true (기본값)**
+### 1.1.  **1️⃣ Case 1 : optional = true (기본값)**
 
 > optional = true ⇒ 없어도 된다는 말
 
@@ -153,7 +153,7 @@ Hibernate:
 - LEFT JOIN 발생
 - 이유 : 부모가 없을 수도 있기 때문
 
-### **2️⃣ Case 2 : `optional = false` + 필드값이 null일 경우**
+### 1.2.  **2️⃣ Case 2 : `optional = false` + 필드값이 null일 경우**
 
 **💭(엔티티)**
 
@@ -187,7 +187,7 @@ Caused by: org.postgresql.util.PSQLException: 오류: "parent_id" 칼럼(해당 
 
 parent 가 없다보니 위와 같이 DB에서 오류를 터트렸다.
 
-### **3️⃣ Case 3 : `optional = false` + 필드값이 존재할 경우**
+### 1.3.  **3️⃣ Case 3 : `optional = false` + 필드값이 존재할 경우**
 
 - 일단 parent 객체가 등장하므로 테스트 코드도 변경
 
@@ -244,7 +244,7 @@ public class Child {
 - INNER JOIN 발생 : 이번에는 innerJoin의 쿼리가 나왔다.
 - 이유: 부모는 반드시 있어야 하므로
 
-## optional = false 만으로는 못 하는 것
+## 2.  optional = false 만으로는 못 하는 것
 
 **✅ 하이버 네이트의 자동 추론**
 
@@ -296,7 +296,7 @@ Cacade
 
 ManyToOne의 cascade 옵션을 사용하는 경우를 예시를 통해 알아볼 것
 
-### ☑️ Case 1. cascade.ALL
+### 0.1.  ☑️ Case 1. cascade.ALL
 
 시나리오<br>
 - `Child` → `Parent` 방향으로 `@ManyToOne(cascade = ALL)` 설정됨
@@ -357,7 +357,7 @@ public class Parent {
 - `@ManyToOne(cascade = ALL)`은 **자식이 persist될 때 부모도 persist되게 하는 것**이지, `delete` 시 반대방향 cascade가 적용되지 않음.
 - 자식 제거 → 부모 제거 : 이 때, 이 부모를 참조하고 있는 다른 자식의 필드값이 NULL이 되어버리니까 DB 수준에서는 참조 무결성 제약조건을 위반하게 되어 예외가 터진 것
 
-### ☑️ Case 2. cascade.ALL + orpan
+### 0.2.  ☑️ Case 2. cascade.ALL + orpan
 
 시나리오
 
@@ -445,7 +445,7 @@ Hibernate:
 > Cascade 속성은 기본적으로 부모 → 자식 으로 전파되도록 설계하는 것이 좋을 것 같다.
 >
 
-### ✅ ManyToOne cascde에 대한 생각
+### 0.3.  ✅ ManyToOne cascde에 대한 생각
 
 앞선 시나리오들을 보면서 문득, 이런 생각이 들었다.
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos 전체 후기/","noteIcon":"","created":"2025-12-03T16:03:23.011+09:00","updated":"2025-12-03T16:03:23.012+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos 전체 후기/","noteIcon":"","created":"2025-12-03T16:03:23.011+09:00","updated":"2025-12-09T17:19:49.441+09:00"}
 ---
 
 

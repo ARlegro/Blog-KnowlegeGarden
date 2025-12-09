@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - Swap 테스트들 모음/","noteIcon":"","created":"2025-10-09T12:24:59.415+09:00","updated":"2025-10-15T16:24:54.569+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - Swap 테스트들 모음/","noteIcon":"","created":"2025-12-03T14:52:52.672+09:00","updated":"2025-12-09T17:19:49.237+09:00"}
 ---
 
 

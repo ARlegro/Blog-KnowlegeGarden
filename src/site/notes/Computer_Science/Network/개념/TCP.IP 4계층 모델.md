@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Network/개념/TCP.IP 4계층 모델/","noteIcon":"","created":"2025-08-29T11:06:10.315+09:00","updated":"2025-09-05T02:31:10.495+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Network/개념/TCP.IP 4계층 모델/","noteIcon":"","created":"2025-12-03T14:52:46.189+09:00","updated":"2025-12-09T17:19:41.977+09:00"}
 ---
 
 

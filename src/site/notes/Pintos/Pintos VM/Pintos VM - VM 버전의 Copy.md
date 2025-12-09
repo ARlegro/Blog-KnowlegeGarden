@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - VM 버전의 Copy/","noteIcon":"","created":"2025-10-09T12:24:59.387+09:00","updated":"2025-10-15T16:17:45.676+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - VM 버전의 Copy/","noteIcon":"","created":"2025-12-03T14:52:52.667+09:00","updated":"2025-12-09T17:19:49.254+09:00"}
 ---
 
 ### 0.1.  목차

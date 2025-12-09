@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos User Prog/Multi-OOM 테스트 코드 심층 분석 및 약간 수정/","noteIcon":"","created":"2025-12-03T16:03:22.597+09:00","updated":"2025-12-03T16:07:32.830+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos User Prog/Multi-OOM 테스트 코드 심층 분석 및 약간 수정/","noteIcon":"","created":"2025-12-03T16:03:22.597+09:00","updated":"2025-12-03T16:10:07.709+09:00"}
 ---
 
 
@@ -838,4 +838,4 @@ Gitbook을 잘못 이해하고 있었다.
 ## 2.  트러블 슈팅으로 
 
 [[Pintos/Pintos User Prog/Multi-OOM 테스트 Trouble(1) - 정상 흐름 속 page fault + 레지스터 오염\|Multi-OOM 테스트 Trouble(1) - 정상 흐름 속 page fault + 레지스터 오염]]
-[[Pintos/Pintos User Prog/Multi-OOM 테스트 Trobule(2) - sema 교체\|Multi-OOM 테스트 Trobule(2) - sema 교체]]
+[[Pintos/Pintos User Prog/Multi-OOM 테스트 Trouble(2) - sema 교체\|Multi-OOM 테스트 Trouble(2) - sema 교체]]

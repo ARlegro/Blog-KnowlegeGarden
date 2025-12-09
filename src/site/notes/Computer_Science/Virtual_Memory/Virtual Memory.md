@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Virtual_Memory/Virtual Memory/","noteIcon":"","created":"2025-07-13T17:00:57.171+09:00","updated":"2025-09-08T13:58:32.972+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Virtual_Memory/Virtual Memory/","noteIcon":"","created":"2025-12-03T14:52:45.978+09:00","updated":"2025-12-09T17:19:42.116+09:00"}
 ---
 
 #메모리_관리_기법 

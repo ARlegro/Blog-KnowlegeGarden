@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/DB/Indexing/Bitmap_Index_Scan VS  Index_Scan VS Table_Scan/","noteIcon":"","created":"2025-06-08T22:34:48.908+09:00","updated":"2025-12-08T17:26:22.793+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/DB/Indexing/Bitmap_Index_Scan VS  Index_Scan VS Table_Scan/","noteIcon":"","created":"2025-12-09T17:19:47.327+09:00","updated":"2025-12-09T17:19:47.329+09:00"}
 ---
 
 

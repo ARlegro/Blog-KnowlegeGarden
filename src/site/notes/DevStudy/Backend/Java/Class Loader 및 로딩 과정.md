@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/Class Loader 및 로딩 과정/","noteIcon":"","created":"2025-12-07T20:39:45.825+09:00","updated":"2025-12-08T17:07:39.720+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/Class Loader 및 로딩 과정/","noteIcon":"","created":"2025-12-07T13:11:50.223+09:00","updated":"2025-12-09T17:19:43.069+09:00"}
 ---
 
 

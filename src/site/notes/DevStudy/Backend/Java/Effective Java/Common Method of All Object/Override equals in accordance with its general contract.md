@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/Effective Java/Common Method of All Object/Override equals in accordance with its general contract/","noteIcon":"","created":"2025-06-24T09:06:24.031+09:00","updated":"2025-12-09T14:01:12.550+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/Effective Java/Common Method of All Object/Override equals in accordance with its general contract/","noteIcon":"","created":"2025-12-03T14:52:49.209+09:00","updated":"2025-12-09T17:19:43.205+09:00"}
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos User Prog/Pintos U.P - 회고(마무리)/","noteIcon":"","created":"2025-12-03T14:52:53.019+09:00","updated":"2025-12-03T16:28:08.983+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos User Prog/Pintos U.P - 회고(마무리)/","noteIcon":"","created":"2025-12-03T14:52:53.019+09:00","updated":"2025-12-03T16:55:40.696+09:00"}
 ---
 
 
@@ -10,11 +10,9 @@
 ### 1.1.  시작, 인자 전달 
 Project 1에서 스레드·락 같은 개념을 만졌을 때는 그냥 “아 운영체제 느낌이 이렇군” 정도였다. 근데 User Program을 시작하자마자 느낌이 확 달라졌다.
 
-Argument Passing을 처음 구현할 때는  
-“도대체 왜 문자열을 역순으로 박고, 왜 word-align을 맞추고, 왜 fake return address를 넣어야 되지?” 이런 생각이 계속 들었다.
+Argument Passing을 처음 구현할 때는 “도대체 왜 문자열을 역순으로 박고, 왜 word-align을 맞추고, 왜 fake return address를 넣어야 되지?” 이런 생각이 계속 들었다.
 
-근데 스택을 한 줄씩 따라가고, System V ABI 문서를 눈으로 훑고, 디버그로 rsp 변화를 보면서 **‘아 이게 이렇게 돼야 main(argc, argv)이 살아서 실행되는구나’**  
-이걸 온몸으로 이해하게 됐다. 
+근데 스택을 한 줄씩 따라가고, System V ABI 문서를 눈으로 훑고, 디버그로 rsp 변화를 보면서 **‘아 이게 이렇게 돼야 main(argc, argv)이 살아서 실행되는구나’** 이걸 온몸으로 이해하게 됐다. 
 
 ### 1.2.  대충 넘어가면 터진다.
 > OS라는 민감한 자식 때문에 얼마나 의미 있게 코드를 짜야될지 느겼다.

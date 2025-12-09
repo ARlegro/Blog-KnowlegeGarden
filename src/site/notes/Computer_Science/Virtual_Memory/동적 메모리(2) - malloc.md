@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Virtual_Memory/동적 메모리(2) - malloc/","noteIcon":"","created":"2025-08-22T16:47:09.685+09:00","updated":"2025-09-05T02:37:34.228+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Virtual_Memory/동적 메모리(2) - malloc/","noteIcon":"","created":"2025-12-03T14:52:46.010+09:00","updated":"2025-12-09T17:19:42.146+09:00"}
 ---
 
 

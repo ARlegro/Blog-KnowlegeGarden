@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Retrospect/0611~0706/0618 Give up MSA/","noteIcon":"","created":"2025-06-20T21:45:38.012+09:00","updated":"2025-07-13T21:30:19.863+09:00"}
+{"dg-publish":true,"permalink":"/Retrospect/0611~0706/0618 Give up MSA/","noteIcon":"","created":"2025-12-03T14:52:53.183+09:00","updated":"2025-12-09T17:19:49.477+09:00"}
 ---
 
 

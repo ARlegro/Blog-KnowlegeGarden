@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - 초기 부분 정리/","noteIcon":"","created":"2025-09-28T00:27:59.634+09:00","updated":"2025-10-15T16:22:15.786+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - 초기 부분 정리/","noteIcon":"","created":"2025-12-03T14:52:52.686+09:00","updated":"2025-12-09T17:19:49.326+09:00"}
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Retrospect/0611~0706/0623 Start Effective Java/","noteIcon":"","created":"2025-06-23T21:18:58.606+09:00","updated":"2025-07-13T21:30:32.921+09:00"}
+{"dg-publish":true,"permalink":"/Retrospect/0611~0706/0623 Start Effective Java/","noteIcon":"","created":"2025-12-03T14:52:53.175+09:00","updated":"2025-12-09T17:19:49.484+09:00"}
 ---
 
 

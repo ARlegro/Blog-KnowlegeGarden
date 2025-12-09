@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/C언어, 자료구조, 알고리즘/문제풀이/Leak  모음/","noteIcon":"","created":"2025-08-18T00:58:47.005+09:00","updated":"2025-08-18T01:06:06.456+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/C언어, 자료구조, 알고리즘/문제풀이/Leak  모음/","noteIcon":"","created":"2025-12-03T14:52:45.741+09:00","updated":"2025-12-09T17:19:41.599+09:00"}
 ---
 
 

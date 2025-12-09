@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Argorithm/Graph, BFS/개념/Tree Basic/","noteIcon":"","created":"2025-07-24T13:50:47.196+09:00","updated":"2025-08-01T01:21:16.511+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Argorithm/Graph, BFS/개념/Tree Basic/","noteIcon":"","created":"2025-12-03T14:52:52.171+09:00","updated":"2025-12-09T17:19:42.443+09:00"}
 ---
 
 

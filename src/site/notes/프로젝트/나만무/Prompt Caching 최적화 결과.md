@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/Prompt Caching 최적화 결과/","noteIcon":"","created":"2025-12-10T00:40:43.810+09:00","updated":"2025-12-10T01:10:36.984+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/Prompt Caching 최적화 결과/","noteIcon":"","created":"2025-12-10T00:40:43.810+09:00","updated":"2025-12-10T01:11:04.299+09:00"}
 ---
 
 
@@ -106,5 +106,7 @@ LangGraph 기반 Agent는 한 턴 안에서도 Router → Agent → Tool → Pos
 ---
 ## 5.  요약 
 
-1. **AWS Bedrock Prompt Caching 활성화** 
-- System prompt를 캐시에 저장 (26,372 tokens) - 2턴부터 캐시에서 읽어 비용 90% 절감 2. **실제 성과:** - Token 사용량: 76% 감소 (34k → 8k tokens/턴) - 비용: 68% 절감 (턴당 $0.0087 → $0.0028) - 3턴 대화 기준 42% 비용 절감, 대화가 길어질수록 절감율 증가
+- 시스템 프롬프트 블록(26k tokens)을 LLM KV Cache에 고정
+- Router ~ Agent 전체 호출이 동일 캐시를 사용
+- Input token 76% 감소 / 비용 68% 절감
+- 장기 대화에서 Cache Hit 100% 유지

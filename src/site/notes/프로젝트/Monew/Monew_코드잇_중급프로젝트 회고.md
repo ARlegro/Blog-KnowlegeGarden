@@ -1,31 +1,20 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/Monew/Monew_코드잇_중급프로젝트 회고/","noteIcon":"","created":"2025-12-03T14:52:47.547+09:00","updated":"2025-12-09T19:55:29.743+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/Monew/Monew_코드잇_중급프로젝트 회고/","noteIcon":"","created":"2025-12-03T14:52:47.547+09:00","updated":"2025-12-09T20:20:23.376+09:00"}
 ---
 
 
+관련
+- [[프로젝트/Monew/Monew batch 구현 흐름도\|Monew batch 구현 흐름도]]
+- [[프로젝트/Monew/이전 프로젝트 - 최적화 해보기\|이전 프로젝트 - 최적화 해보기]]
 
-## 1.  개발 리포트 작성 항목
+## 1.  프로젝트 개요
 
-### 1.1.  프로젝트 개요
-
-#### 1.1.1.  프로젝트의 목적 
+### 1.1.  프로젝트의 목적 
 - 개인 맞춤형 뉴스 스크랩과 소셜 기능을 제공하는 스마트 뉴스 플랫폼인 Monew 서비스 
 - Monew는 다양한 뉴스 API 및 RSS로부터 뉴스를 수집하고, 사용자 관심사 기반으로 선별하여 제공하는 맞춤형 뉴스 스크랩 서비스입니다. 사용자는 관심사에 따라 뉴스를 구독하고, 기사에 댓글을 남기거나 좋아요를 누르며 소통할 수 있습니다. 사용자 활동을 MongoDB에 저장하여 조회 성능을 최적화하며, 기사 데이터는 정기적으로 AWS S3에 백업·복구됩니다.
 
 
-### 1.2.  담당한 작업
-
-> 프로젝트 내에서 본인이 맡은 역할과 기여한 부분을 구체적으로 기술해 주세요.
-
-- Spring Batch 기반 뉴스 기사 수집 및 알림 자동화
-- AWS S3를 통한 기사 백업 및 복구 프로세스 구현
-- 알림 자동 삭제 배치 
-
-### 1.3.  기술적 성과
-
-> 프로젝트에서 사용한 기술 스택과 구현한 주요 기능을 설명해 주세요.
-
-#### 1.3.1.  ✅기술 스택 
+### 1.2.  기술 스택 
 | 분야         | 기술 스택                                                                |
 | ---------- | -------------------------------------------------------------------- |
 | **백엔드**    | Spring Boot, Spring Batch, Spring Data JPA, QueryDSL                 |
@@ -33,7 +22,19 @@
 | **인프라**    | AWS S3, AWS ECS, GitHub Actions, ECR, MongoDB Atlas, RDS, CodeDeploy |
 | **테스트**    | JUnit 5, Mockito                                                     |
 
-#### 1.3.2.  ✅구현한 주요 기능 
+
+## 2.  담당한 작업
+
+- Spring Batch 기반 뉴스 기사 수집 및 알림 자동화
+- AWS S3를 통한 기사 백업 및 복구 프로세스 구현
+- 알림 자동 삭제 배치 
+
+> 구현 흐름도 : [[프로젝트/Monew/Monew batch 구현 흐름도\|Monew batch 구현 흐름도]]
+
+
+## 3.  기술적 성과
+
+### 3.1.  ✅구현한 주요 기능 
 
 **1‍⃣ 뉴스 기사 수집 후 S3백업 및 DB 저장 기능** 
  - 전체적인 흐름 : 기사 수집 ➡ 필터링 ➡ S3백업 ➡ 객체 변환(Article + ArticleInterest) ➡ DB 저장 
@@ -49,12 +50,11 @@
 	- S3에는 백업된 자료이지만 DB에는 저장 시 누락된 기사 
 - 전체적인 흐름 : DB에서 필터링에 필요한 자료들 수집 ➡ 논리 삭제된 기사 복구 ➡ 특정 기간 내 S3에 저장된 기사를 읽어와 필터링 후(sourceUrl비교를 통해) 유실된 데이터 백업 
 
-### 1.4.  문제점 및 해결 과정
+## 4.  문제점 및 해결 과정
 
-> [!WARNING] ❌문제점 1 - Resource 누수 오류 : 커넥션 풀 마르는 현상
+### 4.1.  ❌Trouble 1 - Resource 누수 오류 : 커넥션 풀 마르는 현상
 
-Spring batch를 활용한 백업을 하며 S3에 저장된 여러개의 CSV파일을 읽는 작업을 수행 시도하던 중, 
-Timeout 오류가 발생했습니다. 에러 로그를 확인해보니 커넥션 풀의 문제가 있음을 발견했습니다.
+Spring batch를 활용한 백업을 하며 S3에 저장된 여러개의 CSV파일을 읽는 작업을 수행 시도하던 중, Timeout 오류가 발생했습니다. 에러 로그를 확인해보니 커넥션 풀의 문제가 있음을 발견했습니다.
 
 **✅원인 분석** 
 ![Pasted image 20250525144742.png](/img/user/supporter/image/Pasted%20image%2020250525144742.png)
@@ -98,15 +98,13 @@ private final ApplicationContext resourceLoader;
 
 
 
+### 4.2.  Trouble 2 - S3와 FlatFileWriter의 호환 문제
 
-> [!WARNING] ❌문제점 2 - S3와 FlatFileWriter의 호환 문제
-
-#### 1.4.1.  ✅요구 사항 및 초기 설계 문제
 - 요구사항 : 기사 데이터를 S3에 날짜별 기사를 백업 
 - 초기 설계 
 	- 하루 24번 수집되는 기사 데이터를 하나의 파일에만 저장하도록하여 추후 복구 시 S3 객체 접근 을 최소화하려고 시도
 
-#### 1.4.2.  ✅문제 : FlatFileWriter의 S3 직접 호환 불가 
+#### 4.2.1.  문제 : FlatFileWriter의 S3 직접 호환 불가 
 ![Pasted image 20250525144922.png](/img/user/supporter/image/Pasted%20image%2020250525144922.png)
 - FlatFileWriter의 .append(true) 옵션을 써서 매 시간 기사 데이터를 S3의 하나의 파일에 저장 시도
 - Error happens 
@@ -115,12 +113,12 @@ java.lang.UnsupportedOperationException:
 Amazon S3 resource can not be resolved to java.io.File.objects.Use getInputStream()
 ```
 
-#### 1.4.3.  ✅원인 
+#### 4.2.2.  원인 
 - FlatFileItemWriter는 내부적으로 getFile() 메서드를 실행시켜 File 객체를 직접 참조하려한다.
 - 하지만, S3Resource는 getFile()이 구현되지 않았다. 
 - 결국 FlatFileItemWriter 는 쓰기 대상이 S3인 경우 호환되지 않는 문제 발생
 
-#### 1.4.4.  ✅실패한 시도 
+#### 4.2.3.  실패한 시도 
 
 **시도. MultiPart Upload 방식 구현 시도**
 ![Pasted image 20250525145003.png](/img/user/supporter/image/Pasted%20image%2020250525145003.png)
@@ -132,7 +130,7 @@ Amazon S3 resource can not be resolved to java.io.File.objects.Use getInputStrea
 	- 러닝커브 : 이해하고 쓰기에는 학습곡선이 존재
 	- 배치 작업 자체가 러닝커브가 있는 작업인데 MultiPart방법을 또 학습하기에는 시간 부족
 
-#### 1.4.5.  ✅해결
+#### 4.2.4.  해결
 https://github.com/4monument/sb1-monew-team04/pull/127
 ![Pasted image 20250525145015.png](/img/user/supporter/image/Pasted%20image%2020250525145015.png)
 > 로컬 저장 후 S3 전송 + MultiResourceItemReader**
@@ -148,18 +146,16 @@ https://github.com/4monument/sb1-monew-team04/pull/127
 
 > 파일 수 증가라는 단점보다, 배치 구조 단순화 및 개발 일정 준수라는 장점이 더 크다고 판단했습니다,
 
-### 1.5.  **5. 협업 및 피드백**
+## 5.  협업 및 피드백
 
-> 팀원들과의 협업 과정에서 느낀 점, 배운 점, 그리고 피드백을 기록해 주세요.
-
-#### 1.5.1.  협업 
+### 5.1.  협업 
 
 이번 프로젝트에서 가장 인상 깊었던 점은 **소통 중심의 협업 문화**였습니다. 
 이전까지의 경험에서는 간단한 소통 후 주로 정해진 역할을 맡아 각자 작업하늠 방식이었습니다. 그래서 IT분야에서 협업은 '말보다는 코드로 증명하는 것'이라는 생각을 막연히 갖고 있었습니다.
 하지만 이번 팀에서는 **대화와 피드백을 중심으로 한 협업**이 활발하게 이루어졌습니다. 매일 시간이 오래 걸리더라도 확실히 피드백을 하고 기능 구현에 들어가며, 개발 도중에도 끊임없이 의견을 교환했고, 이를 통해 각자가 구현한 작업이 잘 맞물릴 수 있었습니다.
 물론, 이런 방식으로 인해 개발 시간이 조금 줄어들 수 있었지만, 의도와는 다른 방향으로 개발되는 경우의 수를 줄일 수 있었다는 점에서 '오히려 효율적인 방식이구나' 라는 생각을 하게되었습니다. 
 
-#### 1.5.2.  피드백 
+### 5.2.  피드백 
 **아쉬운점 1‍⃣ : 시간 부족** 
 - 이번 프로젝트를 하면서 중간에 개인적인 외부 일정들이 생기다보니 프로젝트 중간부터 몰입을 못하게 되어서 아쉬웠습니다.
 - 이로 인해, 개선할만한 포인트들을 인지하면서도 못하고 있는 점과 마지막에 팀원들과의 소통에 소홀히하게 됐던점이 아쉬웠습니다.
@@ -168,12 +164,9 @@ https://github.com/4monument/sb1-monew-team04/pull/127
 - RoadMap을 통해 이슈들의 진행 계획과 상황을 문서화하기로 정했지만 저의 게으름 때문에 중반부터 소홀히 하게 되었습니다.
 
 
-### 1.6.  6. 코드 품질 및 최적화
+## 6.  코드 품질 및 최적화
 
->프로젝트 중 코드의 가독성과 유지보수성을 어떻게 고려했는지, 성능 최적화를 위한 작업을 설명해 주세요.
-
-
-**1‍⃣ 일급 컬렉션과 비슷한 객체 사용**
+### 6.1.  1‍⃣ 일급 컬렉션과 비슷한 객체 사용
 ```java
 @Slf4j  
 @Component  
@@ -198,7 +191,7 @@ public class InterestContainer {
 - 효과 : 응집도, 안정성, 유지보수성 상승 + 책임 부여
  
 
-**2‍⃣ 컨텍스트 저장 ➡ 싱글톤 패턴 적용** 
+### 6.2.  2‍⃣ 컨텍스트 저장 ➡ 싱글톤 패턴 적용
 https://github.com/4monument/sb1-monew-team04/pull/171#issue-3040309101
 
 **초기 - 단순 batch Context사용** 
@@ -234,7 +227,7 @@ public class InterestContainer {
 
 
 
-**3‍⃣ 결합도 줄이기**
+### 6.3.  3‍⃣ 결합도 줄이기
 ```java
 [결합도 줄이기 전]
 public static ArticleInterestJdbc create(Article article, Interest interest) {  
@@ -264,7 +257,7 @@ public static ArticleInterestJdbc create(UUID articleId, UUID interestId) {
 - 개선 : 객체, 자료구조를 파라미터로 통째로 넘기는 스탬프 결합도에서 자료 결합도로 바꿈으로써 결합도를 낮추고 리팩토링 및 확장 용이한 코드로 개선해봤습니다.
 
   
-**4‍⃣ 무리한 inline 지양, 의도 명시로 가독성 확보** 
+### 6.4.  4‍⃣ 무리한 inline 지양, 의도 명시로 가독성 확보
 
 **과거**
 - inline variable을 최대한 활용해 코드를 줄이는 것을 선호했습니다.
@@ -282,8 +275,7 @@ PutObjectRequest putObjectRequest = PutObjectRequest.builder()
 ```
 
 
-
-**5‍⃣ JpaWriter ➡ JdbcWriter**
+### 6.5.  5‍⃣ JpaWriter ➡ JdbcWriter
 https://github.com/4monument/sb1-monew-team04/pull/148#issue-3028470958
 ```java
 [JdbcWriter]
@@ -309,8 +301,7 @@ public JdbcBatchItemWriter<Article> articleJdbcItemWriter() {
 - Jdbc는 bulk연산을 제공하기 때문에 처리 시간이 눈에 띄게 줄어드는 효과가 있었습니다.
 
 
-
-**6‍⃣ 배치에서 step끼리 자원 공유 시 PromotionListener**
+### 6.6.  배치에서 step끼리 자원 공유 시 PromotionListener
 - 배치에서 step끼리 자원을 공유하는 방법에는 3가지가 있습니다.
 	1. jobContext에 저장하기 ⬅ 기존에 쓰던 방식
 	2. Singleton 객체 사용하기
@@ -323,9 +314,8 @@ public JdbcBatchItemWriter<Article> articleJdbcItemWriter() {
 - 3번 방식은 스프링 공식 레퍼런스에서 추천하는 것으로 코드가 길어질 수는 있지만 job과의 결합도를 낮추고 안전한 방식입니다.
 
 
-### 1.7.  향후 개선 사항 및 제안
+## 7.  향후 개선 사항 및 제안
 
-#### 1.7.1.  개선할 수 있는 부분
 1. *AOP 활용 : 수많은 배치 관련 빈들을 모니터링하는 로직 구현*  ⭐⭐⭐
 	- 구현된 배치 관련 빈들이 batch 디렉토리와 내부 config 디렉토리에도 많이 구현되어 있습니다.
 	- 이런 빈들을 세세히 모니터링하기 위해 액츄에이터를 활용해 모니터링하려 했으나 비즈니스 로직이 더럽혀지는 문제가 발생해서 그만뒀습니다.

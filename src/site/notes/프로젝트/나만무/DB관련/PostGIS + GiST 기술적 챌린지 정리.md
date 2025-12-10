@@ -1,9 +1,9 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/DB관련/PostGIS + GiST 기술적 챌린지 정리/","noteIcon":"","created":"2025-12-03T14:53:06.736+09:00","updated":"2025-12-09T17:20:11.175+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/DB관련/PostGIS + GiST 기술적 챌린지 정리/","noteIcon":"","created":"2025-12-03T14:53:06.736+09:00","updated":"2025-12-10T14:15:59.072+09:00"}
 ---
 
 
-
+---
 ## 1.  공간 인덱싱을 통한 성능 개선 
 
 > - 요구 사항 : “현재 위치 기준 반경 N km 안의 장소를 찾는다”
@@ -21,7 +21,7 @@
 |                |                  |                     |         |     |
 - DB에 저장된 Place 개수 : 21,929개 
 
-
+---
 ### 1.1.  Haversine 공식 사용 
 > 애플리케이션 레벨의 Haversine 거리 계산으로 구현한 첫 번째 버전
 
@@ -57,6 +57,7 @@
 3. *DB 최적화 기능 사용 불가*
 	- 곡률 계산으로 인해 거리 계산을 애플리케이션 레벨에서 담당하기 때문의 DB의 인덱스, 쿼리 플래너 등의 DB Optimize 기능을 사용하지 못한다.
 
+---
 ### 1.2.  PostGIS 공간 인덱스 사용 
 ![Pasted image 20251118224442.png](/img/user/supporter/image/Pasted%20image%2020251118224442.png)
 Haversine 방식의 한계를 극복하기 위해 좌표를 단순 `FLOAT` 컬럼이 아닌 PostGIS의 **`geography` 타입 + 공간 인덱스(GiST)** 를 도입해 DB 레벨에서 거리 계산 및 필터링을 수행하도록 변경

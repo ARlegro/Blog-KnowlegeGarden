@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/실시간 편집/NestJS - socket 기본 및 테스트/","noteIcon":"","created":"2025-12-03T14:53:06.797+09:00","updated":"2025-12-10T11:30:29.231+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/실시간 편집/NestJS - socket 기본 및 테스트/","noteIcon":"","created":"2025-12-03T14:53:06.797+09:00","updated":"2025-12-10T13:57:44.149+09:00"}
 ---
 
 
@@ -8,8 +8,10 @@
 npm i --save @nestjs/websockets @nestjs/platform-socket.io socket.io
 ```
 
+---
 ## 1.  Websocket vs Socket.io
 
+---
 ### 1.1.  socket 이란 
 > 서버와 클라이언트가 서로 데이터를 주고받기 위한 통신 연결 객체
 
@@ -20,7 +22,7 @@ npm i --save @nestjs/websockets @nestjs/platform-socket.io socket.io
 	- `client.emit()`: 서버가 특정 클라이언트에게 메시지를 보낼 때 사용
 	- `client.on()`: 클라이언트가 서버의 이벤트를 받을 때 사용
 
-
+---
 ### 1.2.  socket의 emit, on
 
 |구문|뜻|방향|비유|
@@ -31,6 +33,7 @@ npm i --save @nestjs/websockets @nestjs/platform-socket.io socket.io
 - `emit()` : 이벤트를 발생시키는 쪽(보내는 역할)
 - `on()`: 이벤트를 듣는 쪽 (받는 역할, 콜백 실행)
 
+---
 ### 1.3.  Room
 > 논리적으로 room으로 구분하여 불필요한 통신을 줄임 
 
@@ -62,7 +65,7 @@ export class ChatGateway {
 
 
 
-
+---
 ## 2.  NestJS의 Socket.IO 게이트웨이
 
 > 클라이언트 - 게이트웨이(서버)가 이벤트를 주고 받는 구조
@@ -122,7 +125,7 @@ socket.on('message', (data) => {
 ```
 
 
-
+---
 ### 2.1.  Socket.IO 활성화
 
 단순히 `@WebSocketGateway`로 등록한다고 되는게 아니다 module에서 provider로 등록해야 함
@@ -136,9 +139,10 @@ export class ChatModule {}
 ```
 
 
-
+---
 ## 3.  실제 
 
+---
 ### 3.1.  기본 - 단일 전송 
 ```js
   @SubscribeMessage('newMessage')
@@ -155,6 +159,8 @@ export class ChatModule {}
 ![Pasted image 20251103113003.png](/img/user/supporter/image/Pasted%20image%2020251103113003.png)
 ![Pasted image 20251103113011.png](/img/user/supporter/image/Pasted%20image%2020251103113011.png)
 
+
+---
 ### 3.2.  브로드 캐스트 
 > 아주 간단. 서버 인스턴스를 활용하면 됨 
 
@@ -168,7 +174,7 @@ export class ChatModule {}
 ```
 
 
-
+---
 ### 3.3.  연결될 때, 
 
 단순히 Message 수신은 `@SubscribeMessage`를 사용하면 된다.
@@ -202,6 +208,7 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
 }
 ```
 
+---
 ### 3.4.  room으로 나누기 
 
 ✅Join 

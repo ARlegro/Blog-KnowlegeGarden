@@ -1,9 +1,9 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/실시간 편집/N+1, JOIN, PostGIS - ‘인기 장소’ 기능 하나 때문에 벌어진 설계/","noteIcon":"","created":"2025-12-03T14:53:06.863+09:00","updated":"2025-12-09T17:53:13.547+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/실시간 편집/N+1, JOIN, PostGIS - ‘인기 장소’ 기능 하나 때문에 벌어진 설계/","noteIcon":"","created":"2025-12-03T14:53:06.863+09:00","updated":"2025-12-10T13:58:43.515+09:00"}
 ---
 
 
-
+---
 ## 1.  요구사항
 
 지도 화면에서 특정 뷰포트(지도 경계, Bounds) 안에 있는 장소를 가져오는 API `getPlacesInBounds`가 이미 있었다. 여기에 추가 요구사항이 붙었다.
@@ -26,7 +26,6 @@
 그래서 **기존 `getPlacesInBounds` 조회 로직 안에서, 각 장소의 인기도 점수를 어떻게 붙일지**가 핵심 고민 포인트였다.
   
 ```ts
-
   async getPlacesInBounds(dto: GetPlacesReqDto): Promise<GetPlacesResDto[]> {
     const {
       southWestLatitude,
@@ -49,11 +48,13 @@
         }
 ```
 
+---
 ## 2.  어떻게 해결해야하는가?
 ![Pasted image 20251121152302.png](/img/user/supporter/image/Pasted%20image%2020251121152302.png)
 RabbitMQ로 수집된 행동 이벤트는 `user_behavior_events` 테이블에 저장된다.  
 여기서 **특정 Bounds 안에 있는 장소들에 대한 “인기도 점수”를 함께 가져오는** 여러 가지 방법을 고민했다. 어떻게 효율적으로 할 수 있을까?
 
+---
 ### 2.1.  고려 1 - Place하나씩 Event Count (전형적인 N+1패턴)
 가장 먼저 떠올릴 수 있는 방식은 단순하다.
 1. 기존 `getPlacesInBounds`로 Bounds 안의 `places` 목록을 먼저 조회
@@ -65,7 +66,7 @@ RabbitMQ로 수집된 행동 이벤트는 `user_behavior_events` 테이블에 �
 - 데이터가 많아질수록 **대표적인 N+1 문제**로 이어짐
 - 특히 행동 로그 테이블은 시간이 지날수록 계속 커지므로 이런 패턴은 장기적으로 유지가 어렵다고 판단했다.
 
-
+---
 ### 2.2.  고려 2. 두 번의 독립 쿼리로 해결 (JOIN 회피)
 두 번째로 생각한 방식은 **JOIN을 완전히 피하는 방식**이다.
 1. 먼저 Bounds 안에 있는 `place` 목록을 가져온다.
@@ -93,6 +94,7 @@ GROUP BY place_id;
 
 실시간으로 요구사항이 자주 바뀌는 프로젝트 특성상 유지 보수 및 확장성을 위해 이 방식 말고 다음 방식을 택했다.
 
+---
 ### 2.3.  고려 3. JOIN + GROUP BY로 한 번에 해결
 > 위의 2가지 방법의 한계로 인해 **JOIN을 사용해서 한 번에 집계하는 구조**로 방향을 잡았다.
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangGraph 개념/","noteIcon":"","created":"2025-12-03T14:53:06.940+09:00","updated":"2025-12-10T14:01:03.329+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangGraph 개념/","noteIcon":"","created":"2025-12-03T14:53:06.940+09:00","updated":"2025-12-10T14:14:09.450+09:00"}
 ---
 
 
@@ -11,24 +11,23 @@
 - [[프로젝트/나만무/AI-Agent/LangGraph - Checkpointer 도입\|LangGraph - Checkpointer 도입]]
 - [[프로젝트/나만무/AI-Agent/중간 정리 - LangGraph 에러 및 어려움\|중간 정리 - LangGraph 에러 및 어려움]]
 
+### 목차
 
-
-### 0.1.  목차
-- [[#1.  왜 LangGrap인가?(공부/도입 이유)|1.  왜 LangGrap인가?(공부/도입 이유)]]
-	- [[#1.  왜 LangGrap인가?(공부/도입 이유)#1.1.  LLM 서비스가 복잡해지면서...|1.1.  LLM 서비스가 복잡해지면서...]]
-	- [[#1.  왜 LangGrap인가?(공부/도입 이유)#1.2.  단순 LangChain의 한계|1.2.  단순 LangChain의 한계]]
-- [[#2.  LangGraph 개념 - Workflow Engine|2.  LangGraph 개념 - Workflow Engine]]
-	- [[#2.  LangGraph 개념 - Workflow Engine#2.1.  기본|2.1.  기본]]
-	- [[#2.  LangGraph 개념 - Workflow Engine#2.2.  핵심 개념|2.2.  핵심 개념]]
-	- [[#2.  LangGraph 개념 - Workflow Engine#2.3.  Node, Edge 설계(간단히 - 코드 없이)|2.3.  Node, Edge 설계(간단히 - 코드 없이)]]
-		- [[#2.3.  Node, Edge 설계(간단히 - 코드 없이)#2.3.1.  Node 설계 (각 단계의 모듈)|2.3.1.  Node 설계 (각 단계의 모듈)]]
-		- [[#2.3.  Node, Edge 설계(간단히 - 코드 없이)#2.3.2.  Edge 설계 (흐름 제어)|2.3.2.  Edge 설계 (흐름 제어)]]
-- [[#3.  LangGraph가 해결하는 주요 문제들 (장점)|3.  LangGraph가 해결하는 주요 문제들 (장점)]]
-	- [[#3.  LangGraph가 해결하는 주요 문제들 (장점)#3.1.  장기 대화의 기억 문제 해결|3.1.  장기 대화의 기억 문제 해결]]
-	- [[#3.  LangGraph가 해결하는 주요 문제들 (장점)#3.2.  Multi-step|3.2.  Multi-step]]
-- [[#4.  LangGraph핵심 기술 (state + checkpointer)|4.  LangGraph핵심 기술 (state + checkpointer)]]
-- [[#5.  LangGraph 실전|5.  LangGraph 실전]]
-- [[#6.  번외 - 구체적인 LangChain vs LangGraph|6.  번외 - 구체적인 LangChain vs LangGraph]]
+- [1.  왜 LangGrap인가?(공부/도입 이유)](#1--%EC%99%9C-langgrap%EC%9D%B8%EA%B0%80%EA%B3%B5%EB%B6%80%EB%8F%84%EC%9E%85-%EC%9D%B4%EC%9C%A0)
+	- [1.1.  LLM 서비스가 복잡해지면서...](#11--llm-%EC%84%9C%EB%B9%84%EC%8A%A4%EA%B0%80-%EB%B3%B5%EC%9E%A1%ED%95%B4%EC%A7%80%EB%A9%B4%EC%84%9C)
+	- [1.2.  단순 LangChain의 한계](#12--%EB%8B%A8%EC%88%9C-langchain%EC%9D%98-%ED%95%9C%EA%B3%84)
+- [2.  LangGraph 개념 - Workflow Engine](#2--langgraph-%EA%B0%9C%EB%85%90---workflow-engine)
+	- [2.1.  기본](#21--%EA%B8%B0%EB%B3%B8)
+	- [2.2.  핵심 개념](#22--%ED%95%B5%EC%8B%AC-%EA%B0%9C%EB%85%90)
+	- [2.3.  Node, Edge 설계(간단히 - 코드 없이)](#23--node-edge-%EC%84%A4%EA%B3%84%EA%B0%84%EB%8B%A8%ED%9E%88---%EC%BD%94%EB%93%9C-%EC%97%86%EC%9D%B4)
+		- [2.3.1.  Node 설계 (각 단계의 모듈)](#231--node-%EC%84%A4%EA%B3%84-%EA%B0%81-%EB%8B%A8%EA%B3%84%EC%9D%98-%EB%AA%A8%EB%93%88)
+		- [2.3.2.  Edge 설계 (흐름 제어)](#232--edge-%EC%84%A4%EA%B3%84-%ED%9D%90%EB%A6%84-%EC%A0%9C%EC%96%B4)
+- [3.  LangGraph가 해결하는 주요 문제들 (장점)](#3--langgraph%EA%B0%80-%ED%95%B4%EA%B2%B0%ED%95%98%EB%8A%94-%EC%A3%BC%EC%9A%94-%EB%AC%B8%EC%A0%9C%EB%93%A4-%EC%9E%A5%EC%A0%90)
+	- [3.1.  장기 대화의 기억 문제 해결](#31--%EC%9E%A5%EA%B8%B0-%EB%8C%80%ED%99%94%EC%9D%98-%EA%B8%B0%EC%96%B5-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0)
+	- [3.2.  Multi-step](#32--multi-step)
+- [4.  LangGraph핵심 기술 (state + checkpointer)](#4--langgraph%ED%95%B5%EC%8B%AC-%EA%B8%B0%EC%88%A0-state--checkpointer)
+- [5.  LangGraph 실전](#5--langgraph-%EC%8B%A4%EC%A0%84)
+- [6.  번외 - 구체적인 LangChain vs LangGraph](#6--%EB%B2%88%EC%99%B8---%EA%B5%AC%EC%B2%B4%EC%A0%81%EC%9D%B8-langchain-vs-langgraph)
 
 
 [LangGrpah 공식 사이트](https://docs.langchain.com/oss/python/langgraph/overview?_gl=1*3behwk*_gcl_au*Nzc3NjIyODAuMTc2MzcyMDc3Mw..*_ga*NTY1NDQ2MDQxLjE3NjM3MjA3NzQ.*_ga_47WX3HKKY2*czE3NjM3MjA3NzQkbzEkZzAkdDE3NjM3MjA3NzQkajYwJGwwJGgw)

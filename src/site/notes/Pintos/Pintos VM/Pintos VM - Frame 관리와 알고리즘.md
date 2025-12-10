@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - Frame 관리와 알고리즘/","noteIcon":"","created":"2025-10-08T16:00:48.804+09:00","updated":"2025-10-15T16:22:46.507+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - Frame 관리와 알고리즘/","noteIcon":"","created":"2025-12-03T14:52:52.734+09:00","updated":"2025-12-09T17:19:49.200+09:00"}
 ---
 
 

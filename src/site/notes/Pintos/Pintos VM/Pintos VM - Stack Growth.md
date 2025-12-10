@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - Stack Growth/","noteIcon":"","created":"2025-10-02T21:24:09.800+09:00","updated":"2025-10-15T16:24:47.855+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - Stack Growth/","noteIcon":"","created":"2025-12-03T14:52:52.710+09:00","updated":"2025-12-09T17:19:49.230+09:00"}
 ---
 
 

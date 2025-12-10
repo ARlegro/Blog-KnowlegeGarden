@@ -1,26 +1,26 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangGraph 핵심 기술 (state + checkpointer)/","noteIcon":"","created":"2025-12-03T14:53:06.843+09:00","updated":"2025-12-09T17:20:11.133+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangGraph 핵심 기술 (state + checkpointer)/","noteIcon":"","created":"2025-12-03T14:53:06.843+09:00","updated":"2025-12-10T13:54:05.809+09:00"}
 ---
 
-### 0.1.  목차
+### 목차
 
-- [[#1.  State - 에이전트의 공용 저장소 ⭐⭐|1.  State - 에이전트의 공용 저장소 ⭐⭐]]
-	- [[#1.  State - 에이전트의 공용 저장소 ⭐⭐#1.1.  기본 개념|1.1.  기본 개념]]
-	- [[#1.  State - 에이전트의 공용 저장소 ⭐⭐#1.2.  예시|1.2.  예시]]
-	- [[#1.  State - 에이전트의 공용 저장소 ⭐⭐#1.3.  State 특징|1.3.  State 특징]]
-	- [[#1.  State - 에이전트의 공용 저장소 ⭐⭐#1.4.  그래프 생성 시 Stat정|1.4.  그래프 생성 시 Stat정]]
-- [[#2.  번외 : state 정의하는 여러가지 방법|2.  번외 : state 정의하는 여러가지 방법]]
-	- [[#2.  번외 : state 정의하는 여러가지 방법#2.1.  MessagState - 기본형 상태|2.1.  MessagState - 기본형 상태]]
-	- [[#2.  번외 : state 정의하는 여러가지 방법#2.2.  직접 정의 state|2.2.  직접 정의 state]]
-- [[#3.  Reducer - State 업데이트 규칙|3.  Reducer - State 업데이트 규칙]]
-- [[#4.  Checkpointer - 대화의 영속적 기억 장치|4.  Checkpointer - 대화의 영속적 기억 장치]]
-- [[#5.  Thread ID - 세션을 구분하는 메타데이터|5.  Thread ID - 세션을 구분하는 메타데이터]]
-- [[#6.  흐름 정리 : State + Checkpointer + Node 흐름 전체|6.  흐름 정리 : State + Checkpointer + Node 흐름 전체]]
-	- [[#6.  흐름 정리 : State + Checkpointer + Node 흐름 전체#6.1.  사용자가 메시지를 보낸다|6.1.  사용자가 메시지를 보낸다]]
-	- [[#6.  흐름 정리 : State + Checkpointer + Node 흐름 전체#6.2.  LangGraph가 thread_id 기반으로 체크포인트 조회|6.2.  LangGraph가 thread_id 기반으로 체크포인트 조회]]
-	- [[#6.  흐름 정리 : State + Checkpointer + Node 흐름 전체#6.3.  그래프 실행|6.3.  그래프 실행]]
-	- [[#6.  흐름 정리 : State + Checkpointer + Node 흐름 전체#6.4.  각 노드가 끝날 때마다 상태가 Checkpointer에 자동 저장|6.4.  각 노드가 끝날 때마다 상태가 Checkpointer에 자동 저장]]
-	- [[#6.  흐름 정리 : State + Checkpointer + Node 흐름 전체#6.5.  다음 요청이 오면 thread_id로 이전 상태부터 다시 시작|6.5.  다음 요청이 오면 thread_id로 이전 상태부터 다시 시작]]
+- [1.  State - 에이전트의 공용 저장소 ⭐⭐](#1--state---%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%EC%9D%98-%EA%B3%B5%EC%9A%A9-%EC%A0%80%EC%9E%A5%EC%86%8C-)
+	- [1.1.  기본 개념](#11--%EA%B8%B0%EB%B3%B8-%EA%B0%9C%EB%85%90)
+	- [1.2.  예시](#12--%EC%98%88%EC%8B%9C)
+	- [1.3.  State 특징](#13--state-%ED%8A%B9%EC%A7%95)
+	- [1.4.  그래프 생성 시 State 정보](#14--%EA%B7%B8%EB%9E%98%ED%94%84-%EC%83%9D%EC%84%B1-%EC%8B%9C-state-%EC%A0%95%EB%B3%B4)
+- [2.  번외 : state 정의하는 여러가지 방법](#2--%EB%B2%88%EC%99%B8--state-%EC%A0%95%EC%9D%98%ED%95%98%EB%8A%94-%EC%97%AC%EB%9F%AC%EA%B0%80%EC%A7%80-%EB%B0%A9%EB%B2%95)
+	- [2.1.  MessagState - 기본형 상태](#21--messagstate---%EA%B8%B0%EB%B3%B8%ED%98%95-%EC%83%81%ED%83%9C)
+	- [2.2.  직접 정의 state](#22--%EC%A7%81%EC%A0%91-%EC%A0%95%EC%9D%98-state)
+- [3.  Reducer - State 업데이트 규칙](#3--reducer---state-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EA%B7%9C%EC%B9%99)
+- [4.  Checkpointer - 대화의 영속적 기억 장치](#4--checkpointer---%EB%8C%80%ED%99%94%EC%9D%98-%EC%98%81%EC%86%8D%EC%A0%81-%EA%B8%B0%EC%96%B5-%EC%9E%A5%EC%B9%98)
+- [5.  Thread ID - 세션을 구분하는 메타데이터](#5--thread-id---%EC%84%B8%EC%85%98%EC%9D%84-%EA%B5%AC%EB%B6%84%ED%95%98%EB%8A%94-%EB%A9%94%ED%83%80%EB%8D%B0%EC%9D%B4%ED%84%B0)
+- [6.  흐름 정리 : State + Checkpointer + Node 흐름 전체](#6--%ED%9D%90%EB%A6%84-%EC%A0%95%EB%A6%AC--state--checkpointer--node-%ED%9D%90%EB%A6%84-%EC%A0%84%EC%B2%B4)
+	- [6.1.  사용자가 메시지를 보낸다](#61--%EC%82%AC%EC%9A%A9%EC%9E%90%EA%B0%80-%EB%A9%94%EC%8B%9C%EC%A7%80%EB%A5%BC-%EB%B3%B4%EB%82%B8%EB%8B%A4)
+	- [6.2.  LangGraph가 thread_id 기반으로 체크포인트 조회](#62--langgraph%EA%B0%80-thread_id-%EA%B8%B0%EB%B0%98%EC%9C%BC%EB%A1%9C-%EC%B2%B4%ED%81%AC%ED%8F%AC%EC%9D%B8%ED%8A%B8-%EC%A1%B0%ED%9A%8C)
+	- [6.3.  그래프 실행](#63--%EA%B7%B8%EB%9E%98%ED%94%84-%EC%8B%A4%ED%96%89)
+	- [6.4.  각 노드가 끝날 때마다 상태가 Checkpointer에 자동 저장](#64--%EA%B0%81-%EB%85%B8%EB%93%9C%EA%B0%80-%EB%81%9D%EB%82%A0-%EB%95%8C%EB%A7%88%EB%8B%A4-%EC%83%81%ED%83%9C%EA%B0%80-checkpointer%EC%97%90-%EC%9E%90%EB%8F%99-%EC%A0%80%EC%9E%A5)
+	- [6.5.  다음 요청이 오면 thread_id로 이전 상태부터 다시 시작](#65--%EB%8B%A4%EC%9D%8C-%EC%9A%94%EC%B2%AD%EC%9D%B4-%EC%98%A4%EB%A9%B4-thread_id%EB%A1%9C-%EC%9D%B4%EC%A0%84-%EC%83%81%ED%83%9C%EB%B6%80%ED%84%B0-%EB%8B%A4%EC%8B%9C-%EC%8B%9C%EC%9E%91)
 
 
 > Langgraph의 가장 강력한 부분은 state를 중심으로 Agent를 구동한다는 점 

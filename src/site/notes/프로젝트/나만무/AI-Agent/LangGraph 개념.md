@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangGraph 개념/","noteIcon":"","created":"2025-12-03T14:53:06.940+09:00","updated":"2025-12-09T17:20:11.107+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangGraph 개념/","noteIcon":"","created":"2025-12-03T14:53:06.940+09:00","updated":"2025-12-10T14:01:03.329+09:00"}
 ---
 
 
@@ -9,7 +9,7 @@
 - [[프로젝트/나만무/AI-Agent/LangGraph vs LangChain\|LangGraph vs LangChain]]
 - [[프로젝트/나만무/AI-Agent/LangGraph 핵심 기술 (state + checkpointer)\|LangGraph 핵심 기술 (state + checkpointer)]]
 - [[프로젝트/나만무/AI-Agent/LangGraph - Checkpointer 도입\|LangGraph - Checkpointer 도입]]
-- [[프로젝트/나만무/AI-Agent/LangGraph 에러 및 어려움\|LangGraph 에러 및 어려움]]
+- [[프로젝트/나만무/AI-Agent/중간 정리 - LangGraph 에러 및 어려움\|중간 정리 - LangGraph 에러 및 어려움]]
 
 
 
@@ -33,6 +33,7 @@
 
 [LangGrpah 공식 사이트](https://docs.langchain.com/oss/python/langgraph/overview?_gl=1*3behwk*_gcl_au*Nzc3NjIyODAuMTc2MzcyMDc3Mw..*_ga*NTY1NDQ2MDQxLjE3NjM3MjA3NzQ.*_ga_47WX3HKKY2*czE3NjM3MjA3NzQkbzEkZzAkdDE3NjM3MjA3NzQkajYwJGwwJGgw)
 
+---
 ## 1.  왜 LangGrap인가?(공부/도입 이유)
 ### 1.1.  LLM 서비스가 복잡해지면서...
 LLM 기반 서비스가 고도화 될수록 아래 요구사항들이 생긴다.
@@ -42,7 +43,7 @@ LLM 기반 서비스가 고도화 될수록 아래 요구사항들이 생긴다.
 
 이러한 요구사항이 쌓이면 단순한 LLM 호출 ➡ 도구 호출 ➡ 답변 수준을 넘어선 **"복잡한 워크플로우(상태 + 분기 + 관리)를 관리해야 한다"**
 
-
+---
 ### 1.2.  단순 LangChain의 한계 
 
 초기 단순 LangChain만으로 복잡한 에이전트를 만들 때 아래의 문제를 많이 겪었다💢
@@ -71,6 +72,7 @@ LLM 기반 서비스가 고도화 될수록 아래 요구사항들이 생긴다.
 ❌단순 LangChain 확장판이 아니다❌
 ✅LangChain 생태계를 활용하지만, **"상태머신 + 그래프 기반 workflow engine"**✅
 
+---
 ### 2.1.  기본
 > 여러 단계의 LLM/도구 호출을 **Graph(상태 머신)** 로 정의하고,  
 > 그 그래프 전반의 상태를 일관되게 관리해주는 프레임워크
@@ -82,7 +84,7 @@ LLM 기반 서비스가 고도화 될수록 아래 요구사항들이 생긴다.
 
 ![Pasted image 20251121192823.png](/img/user/supporter/image/Pasted%20image%2020251121192823.png)
 
-
+---
 ### 2.2.  핵심 개념 
 
 1. *그래프 구조* 
@@ -94,8 +96,10 @@ LLM 기반 서비스가 고도화 될수록 아래 요구사항들이 생긴다.
 	- 각 필드는 “어떻게 업데이트할지”를 정하는 **Reducer**를 가질 수 있다. (ex. `messages`는 쌓이도록(add), `intent`는 마지막 값으로 덮어쓰도록)
 	- 이 덕분에 **장기 대화, 여러 단계 의사결정, 도구 재시도 같은 복잡한 multi-step에 잘 맞는다**
 
+---
 ### 2.3.  Node, Edge 설계(간단히 - 코드 없이)
 이번에 크래프톤 정글 나만무 프로젝트에서 설계한 node, edge를 기준으로 아래와 같이 모듈화하고 흐름을 제어했다.
+
 
 #### 2.3.1.  Node 설계 (각 단계의 모듈)
 > 모든 단계를 Node(모듈)로 쪼개는 과정 
@@ -141,12 +145,12 @@ Node사이의 흐름을 제어하는 역할
 - tool → agent
 - refine → agent
 
-
+---
 ## 3.  LangGraph가 해결하는 주요 문제들 (장점)
 
 > LangGraph는 **상태 관리 및 에이전트 조정 관련된 복잡성을 추상화**한다.
 
-
+---
 ### 3.1.  장기 대화의 기억 문제 해결 
 
 *❗LangChain에서는* 
@@ -168,6 +172,7 @@ Node사이의 흐름을 제어하는 역할
 	  같은 정보를 필드 단위로 구조화해서 유지할 수 있다.
 - 각 Node는 이 State를 읽고/쓰고/업데이트하므로,  장기 대화에서도 **일관된 reasoning**이 가능하다.
 
+---
 ### 3.2.  Multi-step
 *❗LangCahin에서는*
 - 에이전트가 **도구를 하나 실행하고 끝**나는 구조가 대부분이다. 💢
@@ -180,12 +185,15 @@ Node사이의 흐름을 제어하는 역할
 - 또한, **오류 발생 가능성을 매우 줄여준다**.(Cuz 합리적인 추론 ＋ 추론 기반 재시도)
 	- Langgraph가 실수로 tool에 잘못된 인자를 전달하고 머리 역할을 하는 agent_node가 오류를 전달 받았을 때, **재 reasoning을 하며 올바른 인자로 다시 tool을 호출**하는 경우도 있었는데 이는 LangChain의 구조에서는 힘들었던 것
 
+---
 ## 4.  LangGraph핵심 기술 (state + checkpointer)
 [[프로젝트/나만무/AI-Agent/LangGraph 핵심 기술 (state + checkpointer)\|LangGraph 핵심 기술 (state + checkpointer)]]
 
+---
 ## 5.  LangGraph 실전
 
 [[프로젝트/나만무/AI-Agent/LangGrpah 실전 패턴\|LangGrpah 실전 패턴]]
 
+---
 ## 6.  번외 - 구체적인 LangChain vs LangGraph
 [[프로젝트/나만무/AI-Agent/LangGraph vs LangChain\|LangGraph vs LangChain]]

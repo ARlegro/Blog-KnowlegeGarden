@@ -1,9 +1,9 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/실시간 편집/나만무 Redis 활용 (adapter)/","noteIcon":"","created":"2025-12-03T14:53:06.776+09:00","updated":"2025-12-10T10:52:37.038+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/실시간 편집/나만무 Redis 활용 (adapter)/","noteIcon":"","created":"2025-12-03T14:53:06.776+09:00","updated":"2025-12-10T13:56:20.608+09:00"}
 ---
 
 
-
+---
 ## 1.  세팅 
 1. *Redis 컨테이너*
 	```bash
@@ -23,6 +23,7 @@
 npm i --save @nestjs/websockets @nestjs/platform-socket.io socket.io
 ```
 
+---
 ### 1.1.  redis 도커 띄우기 
 
 ```yaml
@@ -50,9 +51,10 @@ SET watermelon 15000
 GET watermelon
 ```
 
-
+---
 ## 2.  개념 
 
+---
 ### 2.1.  Pub/Sub 디자인 패턴 
 > 이벤트 드리븐 아키텍쳐를 적용하는 한 가지 방법 
 
@@ -64,14 +66,16 @@ GET watermelon
 1. 이벤트 생성자가 이벤트 발행
 2. 이벤트 소비자가 구독하여 이벤트를 수신하고 처리 
 
+---
 ### 2.2.  adapter for socket
  
 
 
-
+---
 ## 3.  Redis Adapter + Pub/Sub을 쓴 이유
 > 실시간 UI 동기화 : 실시간 협업 시 멀티 인스턴스 환경에서 실시간 동기화를 유지하려고. 
 
+---
 ### 3.1.  기본 Socket.IO의 한계 
 >[!danger] 확장성의 한계 
 >멀티 인스턴스 환경에서 실시간 동기화 문제가 발생할 수 있다. 
@@ -79,7 +83,7 @@ GET watermelon
 - 기본 Adapter는 프로세스 메모리만 쓴다.
 - 따라서, 프로세스 안에서만 브로드 캐스트하기 때문에 Scale-Out을 통해 다른 인스턴스
 
-
+---
 ### 3.2.  Redis Adapter + Pub/Sub을 쓴다면 
 
 각 서버 인스턴스는 중앙 Message Broker인 Redis를 통해 pub/sub을 구현할 수 있다.
@@ -95,7 +99,7 @@ GET watermelon
 
 > 즉, 수평 확장해도 실시간 동기화 이슈가 발생하지 않기 위해 
 
-
+---
 ## 4.  redisAdpater 
 
 > 기존 소켓 Adapter를 갈아끼우는 것 
@@ -103,6 +107,7 @@ GET watermelon
 
 ![Pasted image 20251103154735.png](/img/user/supporter/image/Pasted%20image%2020251103154735.png)
 
+---
 ### 4.1.  기존 NestJS IoAdapter 역할 
 
 > Nest가 내부적으로 Socket.IO 서버를 생성하고 Gateway에 주입하는 팩토리 역할 
@@ -121,6 +126,7 @@ export declare class IoAdapter extends AbstractWsAdapter {
 }
 ```
 
+---
 ### 4.2.  RedisAdapter로 교체 후 등록
 
 ```js
@@ -185,12 +191,14 @@ app.useWebSocketAdapter(redisIoAdapter);
 >4. 그리고 자동으로 `listen()` 실행
 
 
+---
 ## 5.  활용 클라이언트 
 
 총 2 종류의 클라이언트를 사용한다.(둘다 타입은 같음)
 1. pub/sub 클라이언트들 : 실시간 통신을 위해 
 2. 일반 클라이언트 : 일반 캐시/스토리지 용
 
+---
 ### 5.1.  RedisService 클라이언트 
 
 ```JS
@@ -212,6 +220,7 @@ export class RedisService implements OnModuleInit, OnModuleDestroy {
 ```
 - 여기서 생성한 Client는 일반적인 Redis(캐시) 명령용 클라이언트 
 
+---
 ### 5.2.  RedisAdapter용 pub/sub 클라이언트 
 ```JS
 export class RedisIoAdapter extends IoAdapter {
@@ -228,9 +237,8 @@ export class RedisIoAdapter extends IoAdapter {
 - Socket.IO용 Redis 어뎁터 전용 Client들이 2개 있다
 	1. pubClient : 메시지 publish 용 
 	2. subClient : subscribe용 
-	   
-- 
-
+	
+---
 ### 5.3.  한번에 관리하기 
 ```js
 @Injectable()

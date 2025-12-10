@@ -1,27 +1,25 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangGrpah 실전 패턴/","noteIcon":"","created":"2025-12-03T14:53:06.723+09:00","updated":"2025-12-09T17:20:11.147+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangGrpah 실전 패턴/","noteIcon":"","created":"2025-12-03T14:53:06.723+09:00","updated":"2025-12-10T13:54:24.817+09:00"}
 ---
 
 
+### 목차
 
-### 0.1.  목차
-
-- [[#1.  흐름 - Router ➡ Agent ➡ Tools|1.  흐름 - Router ➡ Agent ➡ Tools]]
-- [[#2.  사전 - 상태 정의 (feat. AgentState)|2.  사전 - 상태 정의 (feat. AgentState)]]
-- [[#3.  Router Node - 대화 흐름의 시작점|3.  Router Node - 대화 흐름의 시작점]]
-	- [[#3.  Router Node - 대화 흐름의 시작점#3.1.  Router Node 역할|3.1.  Router Node 역할]]
-	- [[#3.  Router Node - 대화 흐름의 시작점#3.2.  코드 예시|3.2.  코드 예시]]
-- [[#4.  Agent Node - 에이전트의 두뇌|4.  Agent Node - 에이전트의 두뇌]]
-	- [[#4.  Agent Node - 에이전트의 두뇌#4.1.  역할|4.1.  역할]]
-- [[#5.  ToolNode - 실제 작업 실행|5.  ToolNode - 실제 작업 실행]]
-	- [[#5.  ToolNode - 실제 작업 실행#5.1.  올바른 ToolNode 패턴|5.1.  올바른 ToolNode 패턴]]
-	- [[#5.  ToolNode - 실제 작업 실행#5.2.  툴 등록|5.2.  툴 등록]]
-	- [[#5.  ToolNode - 실제 작업 실행#5.3.  tool_node 등록|5.3.  tool_node 등록]]
-- [[#6.  Update State Node - 상태 업데이트 전용|6.  Update State Node - 상태 업데이트 전용]]
-- [[#7.  Node/Edge 설계 패턴|7.  Node/Edge 설계 패턴]]
-- [[#8.  완성 - agent_graph 생성 및 실행|8.  완성 - agent_graph 생성 및 실행]]
-	- [[#8.  완성 - agent_graph 생성 및 실행#8.1.  실행|8.1.  실행]]
-
+- [1.  흐름 - Router ➡ Agent ➡ Tools](#1--%ED%9D%90%EB%A6%84---router--agent--tools)
+- [2.  사전 - 상태 정의 (feat. AgentState)](#2--%EC%82%AC%EC%A0%84---%EC%83%81%ED%83%9C-%EC%A0%95%EC%9D%98-feat-agentstate)
+- [3.  Router Node - 대화 흐름의 시작점](#3--router-node---%EB%8C%80%ED%99%94-%ED%9D%90%EB%A6%84%EC%9D%98-%EC%8B%9C%EC%9E%91%EC%A0%90)
+	- [3.1.  Router Node 역할](#31--router-node-%EC%97%AD%ED%95%A0)
+	- [3.2.  코드 예시](#32--%EC%BD%94%EB%93%9C-%EC%98%88%EC%8B%9C)
+- [4.  Agent Node - 에이전트의 두뇌](#4--agent-node---%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8%EC%9D%98-%EB%91%90%EB%87%8C)
+	- [4.1.  역할](#41--%EC%97%AD%ED%95%A0)
+- [5.  ToolNode - 실제 작업 실행](#5--toolnode---%EC%8B%A4%EC%A0%9C-%EC%9E%91%EC%97%85-%EC%8B%A4%ED%96%89)
+	- [5.1.  올바른 ToolNode 패턴](#51--%EC%98%AC%EB%B0%94%EB%A5%B8-toolnode-%ED%8C%A8%ED%84%B4)
+	- [5.2.  툴 등록](#52--%ED%88%B4-%EB%93%B1%EB%A1%9D)
+	- [5.3.  tool_node 등록](#53--tool_node-%EB%93%B1%EB%A1%9D)
+- [6.  Update State Node - 상태 업데이트 전용](#6--update-state-node---%EC%83%81%ED%83%9C-%EC%97%85%EB%8D%B0%EC%9D%B4%ED%8A%B8-%EC%A0%84%EC%9A%A9)
+- [7.  Node/Edge 설계 패턴](#7--nodeedge-%EC%84%A4%EA%B3%84-%ED%8C%A8%ED%84%B4)
+- [8.  완성 - agent_graph 생성 및 실행](#8--%EC%99%84%EC%84%B1---agent_graph-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EC%8B%A4%ED%96%89)
+	- [8.1.  실행](#81--%EC%8B%A4%ED%96%89)
 
 
 >[!tip] 핵심 패턴 

@@ -1,9 +1,10 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos 전체 후기/","noteIcon":"","created":"2025-12-03T16:03:23.011+09:00","updated":"2025-12-12T01:32:51.788+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos 전체 후기/","noteIcon":"","created":"2025-12-03T16:03:23.011+09:00","updated":"2025-12-12T01:33:30.949+09:00"}
 ---
 
 
 *관련*
+- [[Pintos/Pintos Thread 모음\|Pintos Thread 모음]]
 - [[Pintos/Pintos VM/Pintos VM - 링크 모음\|Pintos VM - 링크 모음]]
 - [[Pintos/Pintos User Prog/Pintos U.P - 회고(마무리)\|Pintos U.P - 회고(마무리)]]
 

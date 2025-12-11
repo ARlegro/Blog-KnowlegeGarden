@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/실시간 편집/설계 변경 – Connection 기반 → Redis List 기반 순서 관리로 전환/","noteIcon":"","created":"2025-12-03T14:53:06.783+09:00","updated":"2025-12-10T11:29:49.584+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/실시간 편집/설계 변경 – Connection 기반 → Redis List 기반 순서 관리로 전환/","noteIcon":"","created":"2025-12-03T14:53:06.783+09:00","updated":"2025-12-11T14:35:04.046+09:00"}
 ---
 
 
@@ -75,15 +75,15 @@ AND (prev_poi_id, next_poi_id) IN ( VALUES
 - 정규화가 덜 됐다고 볼 수 있지만 유지보수 및 성능 측면(join 줄이는)에서 유리 
 - 또한 드래그앤드랍 처리시 간단 
 
-### 3.1.  Redis 관리 구조 (hash 포함)
-Redis List
+### 3.1.  Redis 관리 구조 (List + Hash)
+Redis List - POI 순서 고나리 
 - 각 plan_day의 POI 순서를 배열 형태로 유지
+- Drag & Drop → 프론트가 보내는 poi_ids 배열을 그대로 Redis List에 재구성 
 - 순서 = List 인덱스
-- Drag & Drop → 전체 순서 배열을 그대로 저장 가능
     
-Redis Hash
-- POI 상세 정보 캐싱
-- sequence 필드는 List 인덱스와 동기화됨
+Redis Hash - POI 상세 정보 관리 
+- Workspace별 POI 상세 정보 캐싱
+- sequence 필드는 List 인덱스와 동기화 ➡DB I/O 감소소
 
 ### 3.2.  실제 코드 동작(REORDER 이벤트)
 > 실제 사용자가 일정을 바꿀 때 `REORDER`이벤트를 발생시키는데 이 때 어떻게 처리하는지 알아볼 것
@@ -109,10 +109,12 @@ Redis Hash
 
 ### 3.3.  Redis 기반 구조 리팩토링 장점
 
-1. 성능 개선 -JOIN 불필요 + O(1)
+1. *성능 개선 -JOIN 불필요 + O(1)*
 	- 매번 일정을 드래그앤드랍으로 업데이트할 때마다 JOIN을 활용할 필요가 없어진다.
 	- 순서 변경 시 O(1) 수준으로 처리 Cuz 리스트 재구성 
 	  
-2. 단순성
+2. *단순성 및 유지보수성 향상*
+	- POI 순서 관리 로직이 극적으로 단순해졌다.
+	- 이전에 고려했단 diff 계산 / 여러 connection 업데이트 같은 고비용 작업이 제거됐기 때문이다.
 
 > DB설계 입장에서 필드가 책임분리가 안되서 정규화가 부족해보이지만 **성능 + 단순성이 장점**인 것 같다.

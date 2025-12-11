@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/실시간 편집/NestJS - socket 기본 및 테스트/","noteIcon":"","created":"2025-12-03T14:53:06.797+09:00","updated":"2025-12-10T13:57:44.149+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/실시간 편집/NestJS - socket 기본 및 테스트/","noteIcon":"","created":"2025-12-03T14:53:06.797+09:00","updated":"2025-12-10T13:57:46.438+09:00"}
 ---
 
 
@@ -237,4 +237,4 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
       from: socket.id,
       at: Date.now(),
     });
-```
+```[

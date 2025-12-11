@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangGraph 개념/","noteIcon":"","created":"2025-12-03T14:53:06.940+09:00","updated":"2025-12-10T14:14:09.450+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangGraph 개념/","noteIcon":"","created":"2025-12-03T14:53:06.940+09:00","updated":"2025-12-10T14:14:20.319+09:00"}
 ---
 
 
@@ -11,7 +11,7 @@
 - [[프로젝트/나만무/AI-Agent/LangGraph - Checkpointer 도입\|LangGraph - Checkpointer 도입]]
 - [[프로젝트/나만무/AI-Agent/중간 정리 - LangGraph 에러 및 어려움\|중간 정리 - LangGraph 에러 및 어려움]]
 
-### 목차
+### 0.1.  목차
 
 - [1.  왜 LangGrap인가?(공부/도입 이유)](#1--%EC%99%9C-langgrap%EC%9D%B8%EA%B0%80%EA%B3%B5%EB%B6%80%EB%8F%84%EC%9E%85-%EC%9D%B4%EC%9C%A0)
 	- [1.1.  LLM 서비스가 복잡해지면서...](#11--llm-%EC%84%9C%EB%B9%84%EC%8A%A4%EA%B0%80-%EB%B3%B5%EC%9E%A1%ED%95%B4%EC%A7%80%EB%A9%B4%EC%84%9C)

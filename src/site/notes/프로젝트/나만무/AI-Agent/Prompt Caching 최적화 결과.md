@@ -1,11 +1,11 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/Prompt Caching 최적화 결과/","noteIcon":"","created":"2025-12-10T00:40:43.810+09:00","updated":"2025-12-10T11:02:41.232+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/Prompt Caching 최적화 결과/","noteIcon":"","created":"2025-12-10T00:40:43.810+09:00","updated":"2025-12-11T16:05:25.760+09:00"}
 ---
 
 
 
 관련 
-- [[프로젝트/나만무/나만무 담당 부분 정리\|나만무 담당 부분 정리]]
+- [[프로젝트/나만무/나만무 개인 구현 기능 정리\|나만무 개인 구현 기능 정리]]
 - 참고 깃허브 : [깃허브 링크 - test 브랜치로](https://github.com/NaManMu-10th-team7/matetrip-ai)
 
 # Prompt Caching 최적화 결과 

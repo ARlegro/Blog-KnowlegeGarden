@@ -1,8 +1,6 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangChain 기본 개념 공부하기(Feat. Agent)/","noteIcon":"","created":"2025-12-03T14:53:06.823+09:00","updated":"2025-12-10T13:53:38.985+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangChain 기본 개념 공부하기(Feat. Agent)/","noteIcon":"","created":"2025-12-03T14:53:06.823+09:00","updated":"2025-12-10T13:53:44.329+09:00"}
 ---
-
-
 
 
 

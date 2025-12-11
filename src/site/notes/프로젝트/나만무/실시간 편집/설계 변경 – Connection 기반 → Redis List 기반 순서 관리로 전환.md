@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/실시간 편집/설계 변경 – Connection 기반 → Redis List 기반 순서 관리로 전환/","noteIcon":"","created":"2025-12-03T14:53:06.783+09:00","updated":"2025-12-11T14:35:04.046+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/실시간 편집/설계 변경 – Connection 기반 → Redis List 기반 순서 관리로 전환/","noteIcon":"","created":"2025-12-03T14:53:06.783+09:00","updated":"2025-12-11T14:38:37.880+09:00"}
 ---
 
 
@@ -76,7 +76,7 @@ AND (prev_poi_id, next_poi_id) IN ( VALUES
 - 또한 드래그앤드랍 처리시 간단 
 
 ### 3.1.  Redis 관리 구조 (List + Hash)
-Redis List - POI 순서 고나리 
+Redis List - 여행 일정별 POI 순서 관리
 - 각 plan_day의 POI 순서를 배열 형태로 유지
 - Drag & Drop → 프론트가 보내는 poi_ids 배열을 그대로 Redis List에 재구성 
 - 순서 = List 인덱스

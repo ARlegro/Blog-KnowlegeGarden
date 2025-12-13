@@ -1,8 +1,8 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/multi/Multi-Tasking vs Multi-Processing/","noteIcon":"","created":"2025-12-03T14:52:49.342+09:00","updated":"2025-12-13T09:26:27.122+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/multi/Multi-Tasking vs Multi-Processing/","noteIcon":"","created":"2025-12-03T14:52:49.342+09:00","updated":"2025-12-13T10:40:56.530+09:00"}
 ---
 
-[
+
 ## 멀티태스킹과 멀티프로세싱
 
 멀티스레드를 이해하려면 위의 2개의 운영체제의 개념을 알아야 함

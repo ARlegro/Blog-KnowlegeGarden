@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/Effective Java/Common Method of All Object/Override equals in accordance with its general contract/","noteIcon":"","created":"2025-12-03T14:52:49.209+09:00","updated":"2025-12-13T09:26:26.934+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/Effective Java/Common Method of All Object/Override equals in accordance with its general contract/","noteIcon":"","created":"2025-12-03T14:52:49.209+09:00","updated":"2025-12-13T10:42:46.201+09:00"}
 ---
 
 
@@ -11,7 +11,7 @@
 
 >[!tip] 필요한 경우가 아니라면 Object의 equal로도 충분한 비교가 가능하다. 따라서 필요한/필요하지 않은 경우를 알고 equals를 Override해라
 
-### 0.1.  ❌재정의(Override)하지 않는 것이 좋은 경우 
+## 1.  ❌재정의(Override)하지 않는 것이 좋은 경우 
 
 1. **각 인스턴스가 본질적으로 고유할 경우**
 	- 같은 인스턴스가 둘 이상 만들어지지 않음을 보장할 때 ex. Enum
@@ -21,7 +21,7 @@
 4. 클래스 자체가 private, package-private이라 **equals메서드를 호출할 일이 없는** 경우
 
 
-### 0.2.  ✅재정의(Override)하는 것이 좋은 경우 
+## 2.  ✅재정의(Override)하는 것이 좋은 경우 
 
 >[!tip] 객체 식별(identity) 목적이 아니라 **논리적 동치성(equality)을 확인해야** 할 때
 
@@ -31,19 +31,19 @@
 	- 재정의 되어 있지 않으면 key값이 논리적으로는 같은데 다른 key로 인식
 
 ---
-## 1.  Object 명세 규약 
+## 3.  Object 명세 규약 
 
 >equals 메서드는 동치 관계(Equivalence relation)를 구현하며 아래를 만족
 >(참고 : 아래는 모든 참조 값이 null 이 아니라는 가정이다)
 
-### 1.1.  반사성 
+### 3.1.  반사성 
 >모든 참조 값 x에 대해 x.equals(x)는 true이다.
 
 객체는 자기 자신과 같아야 한다는 뜻 
 만족 못 시키는게 이상한 듯?
 
 ---
-### 1.2.  2.대칭성 
+### 3.2.  2.대칭성 
 > 모든 참조 값 x, y에 대해, x.equals(y)가 true이면 y.equals(x)도 true이다.
 
 두 객체는 서로에 대한 동치 여부에 똑같이 답해야 한다.
@@ -76,13 +76,13 @@ if (obj instanceof String) {
 > - equals 규약을 어기면 그 객체를 사용하는 다른 객체들이 어떻게 반응할지를 알 수 없다. ex. List, Set에서의 contains 등 
 
 ---
-### 1.3.  추이성
+### 3.3.  추이성
 >모든 참조 값 x, y, z에 대해, x.equals(y)가 true이고 y.equals(z)도 true이면 x.equals(z)도 true이다.
 
 
 이 규약을 깨뜨리면 컬렉션(특히 `Set`, `Map`), 캐시, ORM 식별자 비교, 테스트 단언 등 “동등성”을 전제한 모든 코드가 깨지거나 예측 불가능하게 동작한다.
 
-#### 1.3.1.  추이성 위반 예시 
+#### 3.3.1.  추이성 위반 예시 
 
 **1‍⃣ 상속으로 상태를 확장한 값 객체** 
 ```java
@@ -121,7 +121,7 @@ boolean r3 = p.equals(cp2);   // true
 - ORM 영속성 컨텍스트에서 서로 다른 인스턴스를 같은 ID로 인식 
 - Map에서 서로 다른 Key가 동일하다고 판단되어 충돌 
 
-#### 1.3.2.  ✅해결 
+#### 3.3.2.  ✅해결 
 
 > ❌“**값을 상속으로 확장**”하는 설계는 **동등성 규약엔 적합하지 않다.**
 > 즉, 추가 상태는 상위 타입이 이해하지 못 하므로 상/하위 타입 모두 만족하는 일관된 equals를 사용할 수 없다는 것 
@@ -150,7 +150,7 @@ public class ColorPoint {
 
 ```
 
-#### 1.3.3.  상속 값의 equals 실패 다른 예시 
+#### 3.3.3.  상속 값의 equals 실패 다른 예시 
 
 ```java
 // 1. 값 객체
@@ -192,7 +192,7 @@ boolean extra    = cache.contains(sale);  // false ❌
 그러면 어쨋든 Money타입으로 equals 비교이니까 contains는 true여야 하는 것이 아니냐❓ 라는 의문을 가질 수 있는데, 위의 표처럼 put과 contains확인 단계에서 equals의 호출 방향이 달라지는데, 이 때 크게 문제가 생긴다.
 
 ---
-### 1.4.  일관성
+### 3.4.  일관성
 > 모든 참조 값 x, y에 대해, x.equals(y)를 여러 번 반복해서 호출해도 항상 같은 값을 가짐 
 
 두 객체가 같다면(수정되지 않는 한) 앞으로도 영원히 같아야 한다.
@@ -200,14 +200,14 @@ boolean extra    = cache.contains(sale);  // false ❌
 외부 요인 같은 equals 판단에 신뢰할 수 없는 자원이 끼어들어서는 안된다.
 
 ---
-### 1.5.  null-아님
+### 3.5.  null-아님
 >모든 참조 값 x에 대해, `x.equals(null)`은 false
 
 모든 객체가 null과 같지 않아야 한다.
 
-## 2.  Equals 메서드 구현 방법 (+ 최적화)
+## 4.  Equals 메서드 구현 방법 (+ 최적화)
 
-### 2.1.  `==` 연산자를 사용해 자기 자신의 참조 인지 확인(최적화)
+### 4.1.  `==` 연산자를 사용해 자기 자신의 참조 인지 확인(최적화)
 ```java
 if (this == obj) return true;
 ```
@@ -215,7 +215,7 @@ if (this == obj) return true;
 - **효과** : 동일 참조일 경우, 아래의 복잡한 타입 검사나 필드 비교 생략 → **빠름**
 	#단순_성능_최적화용
 	  
-### 2.2.  instanceof 로 타입검사  or getClass()로 비교
+### 4.2.  instanceof 로 타입검사  or getClass()로 비교
 ```java
 if (!(obj instanceof MyClass)) return false;
 if (o == null || getClass() != o.getClass()) return false;
@@ -241,8 +241,8 @@ return Objects.equals(point, that.point) && Objects.equals(color, that.color);
 ```
 
 
-## 3.  번외 
-### 3.1.  참고 : 컬렉션끼리 비교 시 
+## 5.  번외 
+### 5.1.  참고 : 컬렉션끼리 비교 시 
 
 배열끼리 비교할 때는 단순히 `==`을 쓰면 같은 값을 가진 배열이라도 false가 나온다.
 이럴 때는 Arrays.equals를 사용해라
@@ -275,7 +275,7 @@ System.out.println("리스트 비교 Objects.equals() : " + Objects.equals(list1
 >[!tip] 결론 : 컬렉션끼리 비교 시 내부 값을 기준으로 하고 싶다면 단순 `==`으로는 안된다.
 
 
-### 3.2.  Equals 구현 후 질문할 것 
+### 5.2.  Equals 구현 후 질문할 것 
 
 Equals를 구현했다면 이게 제대로 작동할지 생각해봐야 한다.
 1. **대칭적인가❓**
@@ -283,7 +283,7 @@ Equals를 구현했다면 이게 제대로 작동할지 생각해봐야 한다.
 3. **일관적인가❓**
 
 
-### 3.3.  Equals 파라미터로는 무조건 Object 타입 
+### 5.3.  Equals 파라미터로는 무조건 Object 타입 
 
 > Object 외의 타입을 매개변수로 받는 equals 메서드는 선언하지 말자 
 

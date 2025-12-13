@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Argorithm/번외-Red_Black_Tree/RB_Tree - Delete/","noteIcon":"","created":"2025-12-03T14:52:52.528+09:00","updated":"2025-12-13T10:02:11.689+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Argorithm/번외-Red_Black_Tree/RB_Tree - Delete/","noteIcon":"","created":"2025-12-03T14:52:52.528+09:00","updated":"2025-12-13T10:02:16.282+09:00"}
 ---
 
 
@@ -8,7 +8,7 @@
 삭제 전에는 이미 RB 트리 속성을 만족한 상태
 하지만, 삭제 후에는 RB 트리 속성 위반 여부 확인 必
 
-### 이식 (transplant)
+### 0.1.  이식 (transplant)
 
 1. *삭제될 노드(z) 대신 삭제될 노드(y)를 찾는다*
 	- z의 자식이 하나 이하인 경우 : y = z
@@ -19,16 +19,16 @@
 
 ---
 
-### 삭제되는 색
+### 0.2.  삭제되는 색
 - 삭제하려는 노드의 자녀가 1개 이하 ➡ 삭제되는 색 = 삭제되는 노드의 색 
 - 삭제하려는 노드의 자녀가 2개 이상 ➡ 삭제되는 색 = **삭제되는 노드의 Successor의 색**
 
 ---
-#### 1. 삭제하려는 노드의 자녀가 1개 이하 
+#### 0.2.1.  삭제하려는 노드의 자녀가 1개 이하 
 > 간단. 삭제되는 색 = 삭제되는 노드의 색 
 
 ---
-#### 2. 삭제하려는 노드의 자녀가 2개일 때
+#### 0.2.2.  삭제하려는 노드의 자녀가 2개일 때
  > 삭제되는 색  = "삭제되는 노드의 Successor의 색"
 - 기존 삭제 노드가 successor에 의해 대체되기 때문에 삭제되는 색깔은 Successor의 색이라고 보면 됨 
  - But 실제 노드의 색은 그대로 
@@ -37,11 +37,11 @@
 
 
 ---
-### 위반 여부 확인 
+### 0.3.  위반 여부 확인 
 > 핵심 = 속성 위반 여부를 확인하는 것. **어떤 색이 삭제되는지가 매우 중요**
 
 
-#### 삭제되는 색에 따라 위반 여부 
+#### 0.3.1.  삭제되는 색에 따라 위반 여부 
 > RB_Tree 속성을 위반했는지 확인하는 Tip
 > - 어떤 색이 삭제되는지를 통해 확인 
 > - Red or Black
@@ -60,14 +60,14 @@
 
 # RB_Tree 속성 위반 해결하기(재조정)
 
-#### 특수 Case. 루트 노드가 Red되는 경우(삭제되는 색 Black)
+#### 0.1.1.  특수 Case. 루트 노드가 Red되는 경우(삭제되는 색 Black)
 > 아주 간단. 루트 노드를 Black으로 바꾸면 된다.
 
 ![Pasted image 20250817131959.png](/img/user/supporter/image/Pasted%20image%2020250817131959.png)
 
 
 ---
-## Extra Black 추가 ⭐⭐⭐
+## 1.  Extra Black 추가 ⭐⭐⭐
 > **Case. RB-Tree 특성 5번 위반 (삭제되는 색 Black)**
 > - 특성 5번 = 임의의 노드에서 그 노드의 자손 nil 노드들까지 가는 경로들의 Black 수는 같다
 > - 삭제되는 색이 Black일 경우 5번의 Black 수에 당연히 영향을 끼쳤을 것.
@@ -78,7 +78,7 @@
 >- 이렇게 부여한 extra black은 경로에서 black 수 카운트 시 하나의 black으로 카운트 됨 
 
 ---
-### 예시 1. 삭제 노드의 자녀 수 = 0 
+### 1.1.  예시 1. 삭제 노드의 자녀 수 = 0 
 ![Pasted image 20250817132810.png](/img/user/supporter/image/Pasted%20image%2020250817132810.png)
 ![Pasted image 20250817132829.png](/img/user/supporter/image/Pasted%20image%2020250817132829.png)
 
@@ -89,7 +89,7 @@
 E.B를 통해서 위반했던 5번 특성을 해결 
 
 ---
-### 예시 2. 삭제 노드의 자녀 수 = 1 
+### 1.2.  예시 2. 삭제 노드의 자녀 수 = 1 
 
 삭제되는 색 = 실제 삭제하려던 노드의 색 
 
@@ -104,7 +104,7 @@ E.B를 통해서 위반했던 5번 특성을 해결
 - 이렇게 red노드에 extra black이 부여된 노드를 *red-and-black 노드*라 함 
 
 ---
-### 예시 3. 삭제 노드의 자녀 수 = 2
+### 1.3.  예시 3. 삭제 노드의 자녀 수 = 2
 > 삭제 노드의 자녀 수가 2인 경우는 예시 1, 2와 다른 삭제 색깔을 띈다.
 > - 삭제되는 색  = "삭제되는 노드의 Successor의 색"
 
@@ -113,12 +113,12 @@ E.B를 통해서 위반했던 5번 특성을 해결
 ![Pasted image 20250817150320.png](/img/user/supporter/image/Pasted%20image%2020250817150320.png)
 
 
-## Extra black 부여 후 ⭐⭐⭐
+## 2.  Extra black 부여 후 ⭐⭐⭐
 > Extra Black을 부여받은 노드는 아래 둘 중 하나이다.
 > 1. doubly black
 > 2. red-and-black
 
-### red_and_black 해결 
+### 2.1.  red_and_black 해결 
 > 그냥 Black으로 바꾸면 됨 
 - 5번 속성을 만족 시키기 위해 Black Node를 추가한거니까 그냥 **extra node를 빼고 red_and_black 노드를 Black 노드로 바꾸면 됨** 
 ![Pasted image 20250817151046.png](/img/user/supporter/image/Pasted%20image%2020250817151046.png)
@@ -129,6 +129,6 @@ E.B를 통해서 위반했던 5번 특성을 해결
 
 --- 
 
-### doubly_black 해결하기 ⭐⭐⭐⭐
+### 2.2.  doubly_black 해결하기 ⭐⭐⭐⭐
 
 참고 : [[DevStudy/Argorithm/번외-Red_Black_Tree/doubly_black 해결하기 in RB_Tree\|doubly_black 해결하기 in RB_Tree]]

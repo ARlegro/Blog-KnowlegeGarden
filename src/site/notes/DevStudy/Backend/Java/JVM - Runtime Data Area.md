@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/JVM - Runtime Data Area/","noteIcon":"","created":"2025-12-09T17:19:43.303+09:00","updated":"2025-12-09T17:19:43.304+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/JVM - Runtime Data Area/","noteIcon":"","created":"2025-12-09T17:19:43.303+09:00","updated":"2025-12-13T09:26:27.045+09:00"}
 ---
 
 

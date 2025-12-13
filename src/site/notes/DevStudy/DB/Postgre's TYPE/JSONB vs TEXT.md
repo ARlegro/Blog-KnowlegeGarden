@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/DB/Postgre's TYPE/JSONB vs TEXT/","noteIcon":"","created":"2025-12-09T17:19:47.457+09:00","updated":"2025-12-09T17:19:47.458+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/DB/Postgre's TYPE/JSONB vs TEXT/","noteIcon":"","created":"2025-12-09T17:19:47.457+09:00","updated":"2025-12-13T09:26:31.500+09:00"}
 ---
 
 

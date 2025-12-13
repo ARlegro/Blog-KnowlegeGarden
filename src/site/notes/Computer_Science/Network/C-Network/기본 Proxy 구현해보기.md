@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Network/C-Network/기본 Proxy 구현해보기/","noteIcon":"","created":"2025-12-03T14:52:46.128+09:00","updated":"2025-12-09T17:19:41.913+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Network/C-Network/기본 Proxy 구현해보기/","noteIcon":"","created":"2025-12-03T14:52:46.128+09:00","updated":"2025-12-13T09:26:25.389+09:00"}
 ---
 
 

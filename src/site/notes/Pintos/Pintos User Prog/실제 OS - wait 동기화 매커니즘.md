@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos User Prog/실제 OS - wait 동기화 매커니즘/","noteIcon":"","created":"2025-12-03T16:03:22.741+09:00","updated":"2025-12-09T17:19:49.183+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos User Prog/실제 OS - wait 동기화 매커니즘/","noteIcon":"","created":"2025-12-03T16:03:22.741+09:00","updated":"2025-12-13T09:26:33.274+09:00"}
 ---
 
 

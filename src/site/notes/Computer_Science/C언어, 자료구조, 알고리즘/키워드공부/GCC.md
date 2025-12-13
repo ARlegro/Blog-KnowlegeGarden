@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/C언어, 자료구조, 알고리즘/키워드공부/GCC/","noteIcon":"","created":"2025-12-03T14:52:45.793+09:00","updated":"2025-12-09T17:19:41.658+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/C언어, 자료구조, 알고리즘/키워드공부/GCC/","noteIcon":"","created":"2025-12-03T14:52:45.793+09:00","updated":"2025-12-13T09:26:25.091+09:00"}
 ---
 
 

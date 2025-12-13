@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - 링크 모음/","noteIcon":"","created":"2025-12-09T20:47:29.078+09:00","updated":"2025-12-09T20:51:44.388+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - 링크 모음/","noteIcon":"","created":"2025-12-09T20:47:29.078+09:00","updated":"2025-12-13T09:26:33.412+09:00"}
 ---
 
 
@@ -9,6 +9,9 @@
 
 ## 2.  공부
 
+- [[Page Fault와 Segment Falut\|Page Fault와 Segment Falut]]
+- [[Computer_Science/Virtual_Memory/Virtual Memory\|Virtual Memory]]
+- [[Computer_Science/Virtual_Memory/메모리 매핑\|메모리 매핑]]
 - [[Pintos/Pintos VM/Pintos VM - 구조체 및 관련 개념 정리\|Pintos VM - 구조체 및 관련 개념 정리]]
 - [[Pintos/Pintos VM/Pintos VM - 스택 개념 및 구조\|Pintos VM - 스택 개념 및 구조]]
 - [[Pintos/Pintos VM/Pintos VM - 초기 부분 정리\|Pintos VM - 초기 부분 정리]]
@@ -20,6 +23,7 @@
 - [[Pintos/Pintos VM/Pintos VM - Stack Growth\|Pintos VM - Stack Growth]]
 - [[Pintos/Pintos VM/Pintos VM - Swapping\|Pintos VM - Swapping]]
 - [[Pintos/Pintos VM/Pintos VM - VM 버전의 Copy\|Pintos VM - VM 버전의 Copy]]
+- 
 
 ## 3.  테스트 및 트러블 
 - [[Pintos/Pintos VM/Pintos VM - 마지막 테스트 fork-read\|Pintos VM - 마지막 테스트 fork-read]]

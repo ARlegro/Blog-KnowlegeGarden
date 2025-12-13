@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/multi/Multi-Tasking vs Multi-Processing/","noteIcon":"","created":"2025-12-03T14:52:49.342+09:00","updated":"2025-12-09T17:19:43.368+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/multi/Multi-Tasking vs Multi-Processing/","noteIcon":"","created":"2025-12-03T14:52:49.342+09:00","updated":"2025-12-13T09:26:27.122+09:00"}
 ---
 
 [

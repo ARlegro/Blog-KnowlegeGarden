@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/Prompt Caching 최적화 결과/","noteIcon":"","created":"2025-12-10T00:40:43.810+09:00","updated":"2025-12-12T21:51:41.808+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/Prompt Caching 최적화 결과/","noteIcon":"","created":"2025-12-10T00:40:43.810+09:00","updated":"2025-12-13T09:33:18.482+09:00"}
 ---
 
 
@@ -12,7 +12,7 @@
 
 ---
 ## 1.  Preview - 최종 성과 요약 
-
+![프롬프트 캐싱 4.png](/img/user/supporter/image/%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%20%EC%BA%90%EC%8B%B1%204.png)
 AI Agent의 시스템 프롬프트(약 26k tokens)가 Router–Agent–Tool 호출마다 반복 전송되는 구조로 인해 턴당 평균 34k tokens가 발생했다. Bedrock Prompt Caching을 적용하여 시스템 프롬프트를 최초 1회만 모델에 로드하도록 개선함으로써, 아래와 같은 결과를 얻었다.
 
 | 지표                | 개선 전            | 개선 후                         | 개선율        |
@@ -32,6 +32,7 @@ LangGraph 기반 Agent는 한 턴 안에서도 Router → Agent → Tool → Pos
 
 > AWS Bedrock Prompt Caching 이용 [[프로젝트/나만무/AI-Agent/AWS Bedrock Caching Prompt\|AWS Bedrock Caching Prompt]]
 
+![프롬프트 캐싱2.png](/img/user/supporter/image/%ED%94%84%EB%A1%AC%ED%94%84%ED%8A%B8%20%EC%BA%90%EC%8B%B12.png)
 1. *System Prompt Caching 도입*
 	- **시스템 프롬프트(26k tokens)를 캐시에 저장**
 	- 첫 요청에서만 `cache write`
@@ -108,5 +109,3 @@ LangGraph 기반 Agent는 한 턴 안에서도 Router → Agent → Tool → Pos
 - Router ~ Agent 전체 호출이 동일 캐시를 사용
 - Input token 76% 감소 / 비용 68% 절감
 - 장기 대화에서 Cache Hit 100% 유지
-
-

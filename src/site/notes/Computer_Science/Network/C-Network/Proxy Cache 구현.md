@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Network/C-Network/Proxy Cache 구현/","noteIcon":"","created":"2025-12-03T14:52:46.105+09:00","updated":"2025-12-09T17:19:41.882+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Network/C-Network/Proxy Cache 구현/","noteIcon":"","created":"2025-12-03T14:52:46.105+09:00","updated":"2025-12-13T09:26:25.349+09:00"}
 ---
 
 

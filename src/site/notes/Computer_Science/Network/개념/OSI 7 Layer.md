@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Network/개념/OSI 7 Layer/","noteIcon":"","created":"2025-12-03T14:52:46.246+09:00","updated":"2025-12-09T17:19:41.950+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Network/개념/OSI 7 Layer/","noteIcon":"","created":"2025-12-03T14:52:46.246+09:00","updated":"2025-12-13T09:26:25.433+09:00"}
 ---
 
 

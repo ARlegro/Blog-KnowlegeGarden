@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/Monew/Exhausted Connection-Pool/","noteIcon":"","created":"2025-12-03T14:52:46.568+09:00","updated":"2025-12-09T17:19:47.924+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/Monew/Exhausted Connection-Pool/","noteIcon":"","created":"2025-12-03T14:52:46.568+09:00","updated":"2025-12-13T09:27:00.546+09:00"}
 ---
 
 > 커넥션 풀 마르는 트러블 슈팅

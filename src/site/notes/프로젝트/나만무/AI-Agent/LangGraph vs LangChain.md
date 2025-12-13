@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangGraph vs LangChain/","noteIcon":"","created":"2025-12-03T14:53:06.836+09:00","updated":"2025-12-09T17:20:11.100+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangGraph vs LangChain/","noteIcon":"","created":"2025-12-03T14:53:06.836+09:00","updated":"2025-12-13T09:27:00.576+09:00"}
 ---
 
 

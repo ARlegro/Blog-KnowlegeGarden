@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - 구조체 및 관련 개념 정리/","noteIcon":"","created":"2025-12-03T14:52:52.725+09:00","updated":"2025-12-09T17:19:49.299+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - 구조체 및 관련 개념 정리/","noteIcon":"","created":"2025-12-03T14:52:52.725+09:00","updated":"2025-12-13T09:26:33.396+09:00"}
 ---
 
 Pintos VM 구조체 및 관련 개념 정리에 관한 글 

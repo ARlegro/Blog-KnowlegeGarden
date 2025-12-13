@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/z.etc/What is restful api/","noteIcon":"","created":"2025-12-03T14:52:46.401+09:00","updated":"2025-12-09T17:19:49.012+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/z.etc/What is restful api/","noteIcon":"","created":"2025-12-03T14:52:46.401+09:00","updated":"2025-12-13T09:26:33.096+09:00"}
 ---
 
 

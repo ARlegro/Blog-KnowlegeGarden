@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Infra/Connect_EC2_by_WSL(feat.SSH)/","noteIcon":"","created":"2025-12-03T14:52:51.727+09:00","updated":"2025-12-09T17:19:47.828+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Infra/Connect_EC2_by_WSL(feat.SSH)/","noteIcon":"","created":"2025-12-03T14:52:51.727+09:00","updated":"2025-12-13T09:26:31.956+09:00"}
 ---
 
 

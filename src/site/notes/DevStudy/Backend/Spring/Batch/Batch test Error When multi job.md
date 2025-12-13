@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Backend/Spring/Batch/Batch test Error When multi job/","noteIcon":"","created":"2025-12-03T14:52:47.608+09:00","updated":"2025-12-09T17:19:44.989+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Spring/Batch/Batch test Error When multi job/","noteIcon":"","created":"2025-12-03T14:52:47.608+09:00","updated":"2025-12-13T09:26:28.859+09:00"}
 ---
 
 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/DB관련/PostGIS와 GiST 인덱싱/","noteIcon":"","created":"2025-12-03T14:53:06.804+09:00","updated":"2025-12-12T12:56:12.572+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/DB관련/PostGIS와 GiST 인덱싱/","noteIcon":"","created":"2025-12-03T14:53:06.804+09:00","updated":"2025-12-13T09:28:13.112+09:00"}
 ---
 
 
@@ -150,9 +150,9 @@ PostGIS의 공간 인덱스는
 - **R-Tree 계열의 공간 분할 로직을 얹은 구현체**
 
 즉, 
-- GiST = “틀”
-- R-Tree = “공간 데이터를 다루는 규칙 집합”
-- PostGIS = “그 규칙을 geometry/geography 타입에 맞게 구현한 확장”
+- GiST = 틀
+- R-Tree = 공간 데이터를 다루는 규칙 집합
+- PostGIS = 그 규칙을 geometry/geography 타입에 맞게 구현한 확장
 
 ### 3.4.  핵심 특징 요약 
 

@@ -1,9 +1,9 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/Virtual Thread/","noteIcon":"","created":"2025-12-03T14:52:49.368+09:00","updated":"2025-12-13T09:26:27.104+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/Virtual Thread/","noteIcon":"","created":"2025-12-03T14:52:49.368+09:00","updated":"2025-12-13T10:33:24.206+09:00"}
 ---
 
 
-## 개념 및 특장점
+## 1.  개념 및 특장점
 
 **개념**
 
@@ -28,7 +28,8 @@ vte.submit(Runnable or Callable);  <<< 둘 다 가능
 
 둘의 차이는 나중에 알아보자
 
-### **장점 정리**
+---
+### 1.1.  장점 정리
 
 1. **경량화된 스레드**
     - **기존의 플랫폼 스레드 : 운영체제(OS) 스레드와 1:1로 매핑**되기 때문에, 많은 수의 스레드를 생성하면 **컨텍스트 스위칭 비용이 증가하고 메모리 부담이 커짐**
@@ -124,9 +125,10 @@ vte.submit(Runnable or Callable);  <<< 둘 다 가능
 
 가상스레드 자세한건 나중에
 
-## 생성 예시
+---
+## 2.  생성 예시
 
-### **V1 - 미리 만들어 놓기**
+### 2.1.  **V1 - 미리 만들어 놓기**
 
 ```java
 private final ExecutorService ves = Executors.newVirtualThreadPerTaskExecutor();
@@ -159,7 +161,8 @@ public void executeTasks() {
 3. **코드가 더 복잡해짐**
     - 단순히 `Thread.startVirtualThread()`를 호출하면 끝날 일을, `ExecutorService.submit()` 형태로 감싸야 해서 코드가 복잡해짐.
 
-### V2 - 그때 그때 만들기
+---
+### 2.2.  V2 - 그때 그때 만들기
 
 > 이 방식이 효율적이지만, **편의성은 V1이 좋아서 V1 or V3 많이 씀**
 >
@@ -185,7 +188,8 @@ for (Thread thread : threads) {
 
 - 이 방식이 더 직관적이고 메모리 효율적
 
-### V3 - Callable 사용(반환값이 필요한 경우)
+---
+### 2.3.  V3 - Callable 사용(반환값이 필요한 경우)
 
 이 예시는 ㄱ
 
@@ -232,7 +236,8 @@ System.out.println(result1 + result2);
 - **반환값 관리**가 용이하고,
 - **에러 처리**나 **타임아웃** 설정 등 다양한 옵션을 쉽게 적용할 수 있어서 일반적으로 선호
 
-### V4 - CompletableFutre vs  Future
+---
+### 2.4.  V4 - CompletableFutre vs  Future
 
 ```java
     private final ExecutorService ves = Executors.newVirtualThreadPerTaskExecutor();
@@ -267,10 +272,11 @@ try {
 
 - 가상 쓰레드가 비동기 지원해서 runAsync와 코드가 겹칠 수 있지만 깔끔해 보이긴 함
 - But 가상 쓰레드가 있는데 굳이 CompletableFuture를 공부하기에는 시간이 부족해서 그냥 가상 스레드 방법쓰자
-- 참고로 Future<?> 은 어떤 타입의 값이든 반환할 수 있는 Future 객체라는 뜻
+- 참고로 `Future<?>` 은 어떤 타입의 값이든 반환할 수 있는 Future 객체라는 뜻
     - get() 호출 시 Object처리됨
 
-## 비동기 처리와 작업 완료 순서가 예측 불가능한 이유
+---
+## 3.  비동기 처리와 작업 완료 순서가 예측 불가능한 이유
 
 > 동시성 작업이 시스템에 미치는 영향을 살펴보면서, 시간 순서가 보장되지 않는 점을 이해해보자
 >
@@ -322,9 +328,10 @@ public static void main(String[] args) throws Exception{
 > - 비동기 작업은 실행 순서를 보장하지 않는다.
 > - **운영체제의 CPU 스케줄링과 여러 요인에 의해 실행 순서가 달라질 수 있다**
 
-## 주의할 점
+---
+## 4.  주의할 점
 
-### 잘못된 사용 1
+### 4.1.  잘못된 사용 1
 
 ```java
     public static void main(String[] args) throws Exception{
@@ -345,7 +352,7 @@ public static void main(String[] args) throws Exception{
 
 - `ExecutorService`는 `submit()`을 통해 작업을 스케줄링하지만, 메인 스레드가 종료되면 작업이 실행되지 않은 채 프로그램이 종료될 수 있음.
 
-### 올바른 사용 1
+### 4.2.  올바른 사용 1
 
 ```java
     public static void main(String[] args) throws Exception{
@@ -376,7 +383,7 @@ public static void main(String[] args) throws Exception{
 
 - 결과값은 순서대로 되는게 아니다
 
-### 잘못된 사용 2
+### 4.3.  잘못된 사용 2
 
 ```java
 try {
@@ -393,7 +400,7 @@ try {
 - `invokeAll()`은 Callable 작업들을 넣으면 동시에 병렬 실행
 - `invokeAll()`은 **모든 작업이 완료될 때까지 블로킹됨**
 
-### 올바른 시도2
+### 4.4.  올바른 시도2
 
 ```java
 
@@ -408,7 +415,7 @@ ves.invokeAll(List.of(submit1, submit2, submit3));
 - 하나의 통일된 타입 `T`에 대해 `Callable<T>`를 여러 개 받아들이는 구조
 - Void로 통합해서 한번에 넣는다
 
-### 오해
+### 4.5.  오해
 
 ```java
 // 가상스레드 생성
@@ -457,7 +464,7 @@ try {
 
 Spring에서는 기본적으로 **가상 스레드 기반 `ScheduledTaskExecutor`를 제공하지 않음**.
 
-## **가상 스레드를 언제 사용해야 할까?**
+## 5.  **가상 스레드를 언제 사용해야 할까?**
 
 **✔ 사용하면 좋은 경우**
 

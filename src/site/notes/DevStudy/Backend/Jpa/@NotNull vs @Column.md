@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Backend/Jpa/@NotNull vs @Column/","noteIcon":"","created":"2025-12-03T14:52:49.403+09:00","updated":"2025-12-13T09:26:27.147+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Jpa/@NotNull vs @Column/","noteIcon":"","created":"2025-12-03T14:52:49.403+09:00","updated":"2025-12-13T10:31:36.225+09:00"}
 ---
 
 
@@ -16,7 +16,7 @@ JPA를 이용해서 스프링 프로젝트를 할 때,<br>
 
 이 둘의 차이를 알아볼 것!
 
-### 실험 대상 엔티티
+### 0.1.  실험 대상 엔티티
 
  **기본 엔티티**
 ```kotlin
@@ -32,15 +32,15 @@ public class Item {
 ```
 위의 클래스를 기반으로 테스트를 해볼 것이다.
 
-## `@NotNull` 적용 시
+## 1.  `@NotNull` 적용 시
 
-### `@NotNull` 기본 개념
+### 1.1.  `@NotNull` 기본 개념
 
 - `@NotNull`은 `Bean Validation` 명세에 정의된 어노테이션이다.
 - 엔티티뿐만 아니라, DTO 같은 일반 객체에도 적용된다.
 - `@Column(nullabe=false)`와 달리, 엔티티뿐만 아니라 어떠한 빈이나, 클래스(ex. DTO)에도 사용될 수 있다.
 
-### 엔티티 세팅 및 테스트
+### 1.2.  엔티티 세팅 및 테스트
 
 ```kotlin
 @Entity
@@ -70,7 +70,7 @@ public class ItemNullTest {
 }
 ```
 
-### **결과 확인**
+### 1.3.  **결과 확인**
 
 **✅ 테이블 생성 쿼리**
 
@@ -140,9 +140,9 @@ List of constraint violations:[
 
 이는, 검증을 DB에서 하는 것이 아니라 스프링 차원에서 하는 것이다.
 
-## @Column(nullable = false) 적용 시
+## 2.  @Column(nullable = false) 적용 시
 
-### @Column 기본 개념
+### 2.1.  @Column 기본 개념
 
 - JPA 명세에 포함된 애노테이션이다.
 - 실제 데이터베이스 열의 특정 특성을 나타내기 위해 사용
@@ -150,7 +150,7 @@ List of constraint violations:[
 - 목적 : 주로, DDL 스키마 생성 시 사용된다.
 - 이 애노테이션을 생략하면 @Column의 기본값이 적용된다.(예외는 있는데 일단은 딥하게 X)
 
-### 엔티티 세팅 및 테스트
+### 2.2.  엔티티 세팅 및 테스트
 
 ```kotlin
 @Data
@@ -181,7 +181,7 @@ public class ItemNullTest {
   }
 ```
 
-### 결과 확인
+### 2.3.  결과 확인
 
 ✅ **테이블 생성 쿼리**
 
@@ -266,7 +266,7 @@ spring.jpa.properties.hibernate.check_nullability=true
 
 
 
-### @Column 분석 정리
+### 2.4.  @Column 분석 정리
 
 `@Column(nullabe = false)` 를 사용하는 경우에는 SQL 쿼리가 실제 실행되었고 DB에서 예외가 발생했다.
 
@@ -314,7 +314,7 @@ public class Item {
 
 - 이런 오버 검증은 코드 유지보수가 어렵다는 문제도 있다.
 
-### **@Column(nullable=false) 장점**
+### 0.1.  **@Column(nullable=false) 장점**
 
 **1️⃣ 명시적 (추론력 상승)** ⭐⭐⭐
 
@@ -330,7 +330,7 @@ public class Item {
 
 `@Column(nullable = false)` 보고 스키마 자동 생성, ERD 뷰 만들어주는 도구들이 있는데, 이 코드가 없으면 툴 자동화 연동이 깨지는 문제가 발생한다.
 
-### 운영 단계에서 지침
+### 0.2.  운영 단계에서 지침
 
 참고 : 일반적으로 **운영 및 배포 단계**에서는 Hibernate DDL 생성 기능을 안 쓴다.
 

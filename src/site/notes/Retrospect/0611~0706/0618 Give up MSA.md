@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Retrospect/0611~0706/0618 Give up MSA/","noteIcon":"","created":"2025-12-03T14:52:53.183+09:00","updated":"2025-12-13T09:26:33.623+09:00"}
+{"dg-publish":true,"permalink":"/Retrospect/0611~0706/0618 Give up MSA/","noteIcon":"","created":"2025-12-03T14:52:53.183+09:00","updated":"2025-12-13T10:16:36.245+09:00"}
 ---
 
 
@@ -9,7 +9,7 @@
 - [[Retrospect/0611~0706/0617 R.M + Saga-Pattern Impl. (feat. redis)\|0617 R.M + Saga-Pattern Impl. (feat. redis)]]
 
 ---
-### MSA까지 오게 된 이유 
+### 0.1.  MSA까지 오게 된 이유 
 처음 이 공부를 하며 프로젝트를 시작하게 된 계기는, 외부 API를 여러 번 호출하는 긴 트랜잭션 구조에서 오는 복잡성과 비효율성을 분해하고 싶다는 고민 때문이었다.
 전통적인 모놀리식(monolithic) 애플리케이션에서는 `@Transactional`만 잘 활용하면 손쉽게 ACID를 보장할 수 있다. 실제로 필드에서도 그렇게 구현된 경우가 많을 것이다.
 하지만 문제는 확장성이다.  (+결합도)
@@ -17,14 +17,14 @@
 이러한 문제들을 해결하고자 등장한 것이 **MSA**이고 지금 내가 하려는 결합도를 낮추려는 코드 전략도 이를 통해 해결할 수 있다는 것을 알게된 후 공부하게 됐다.
 
 ---
-### 처음에는 회의적 
+### 0.2.  처음에는 회의적 
 사실 처음부터 MSA를 학습하려던 건 아니었다.
 다. 약 3달 전, 한 대기업 IT서비스 기업에 재직 중인 멘토님이 “Microservice Architecture는 꼭 알 필요 없다. 나도 모른다”는 말을 했던 게 기억에 남는다. 그때는 나도 굳이 파고들 생각이 없었고 지금도 비효율적인 공부라고 생각한다..
 하지만 내 코드의 **결합도를 낮춰보고** 싶었고, 좀 더 **모듈화된, 객체지향적인 구조**를 만들어보고 싶다는 욕심이 생겼다. 그렇게 시작한 것이 **RabbitMQ**였다.
 RabbitMQ에서 시작된 관심은 자연스럽게 **트랜잭션 처리 문제**로 이어졌고, **Saga Pattern**, 나아가 **Spring StateMachine**에까지 발을 들이게 되었다.
 
 ---
-### 결론 : Give Up ➡ 수동 보상 트랜잭션으로 마무리 
+### 0.3.  결론 : Give Up ➡ 수동 보상 트랜잭션으로 마무리 
 처음에는 MSA에서 데이터의 일관성을 보장할 수 있는 **Saga Orchestration** 구조를 Spring의 상태 머신 프레임워크로 구현하려고 했다.
 (이 링크처럼 : https://techblog.woowahan.com/19491/)
 
@@ -38,7 +38,7 @@ RabbitMQ에서 시작된 관심은 자연스럽게 **트랜잭션 처리 문제*
 우선은, 설계한거랑 어느정도 구현한게 아쉬워서라도 간단하게 수동으로 보상 트랜잭션으로 saga-pattern구현만 해보고 이 프로젝트는 마무리를 하려 한다.
 
 ---
-### 삽질 속 남은 것들 
+### 0.4.  삽질 속 남은 것들 
 회고록에는 적지 않았지만 Rabbit MQ부터 시작해서 지금까지 거의 1주일? 정도 시간을 쏟았다. 
 프로젝트에 **RabbitMQ**를 도입하고, **Saga Pattern** 구현을 시도하며, **MSA의 구조적 복잡성과 트레이드오프**를 몸소 체험한 시간이었다.
 
@@ -50,6 +50,6 @@ RabbitMQ에서 시작된 관심은 자연스럽게 **트랜잭션 처리 문제*
 
 향후 3~5일 정도 이 프로젝트를 마무리 짓고, 입소 전까지는 이전에 공부했던 Java, Spring, DB 등 기반 지식들을 정리하는 데 집중할 계획이다.
 
-> 참고 [[DevStudy/Backend/RM/saga/Monolitic Service's Boundary and How to maintain Atomicity in MSA (with saga)\|Monolitic Service's Boundary and How to maintain Atomicity in MSA (with saga)]]
+> 참고 [[DevStudy/Backend/saga-pattern/Monolitic Service's Boundary and How to maintain Atomicity in MSA (with saga)\|Monolitic Service's Boundary and How to maintain Atomicity in MSA (with saga)]]
 
 

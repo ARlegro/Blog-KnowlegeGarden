@@ -9,7 +9,7 @@
 
 ## 2.  공부
 
-- [[Page Fault와 Segment Falut\|Page Fault와 Segment Falut]]
+- [[Computer_Science/Virtual_Memory/Page Fault와 Segment Falut\|Page Fault와 Segment Falut]]
 - [[Computer_Science/Virtual_Memory/Virtual Memory\|Virtual Memory]]
 - [[Computer_Science/Virtual_Memory/메모리 매핑\|메모리 매핑]]
 - [[Pintos/Pintos VM/Pintos VM - 구조체 및 관련 개념 정리\|Pintos VM - 구조체 및 관련 개념 정리]]

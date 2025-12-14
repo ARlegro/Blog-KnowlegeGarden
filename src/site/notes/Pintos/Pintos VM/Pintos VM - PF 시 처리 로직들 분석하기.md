@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - PF 시 처리 로직들 분석하기/","noteIcon":"","created":"2025-12-03T14:52:52.877+09:00","updated":"2025-12-13T09:26:33.313+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - PF 시 처리 로직들 분석하기/","noteIcon":"","created":"2025-12-03T14:52:52.877+09:00","updated":"2025-12-13T18:25:31.642+09:00"}
 ---
 
 PF = Page Fault

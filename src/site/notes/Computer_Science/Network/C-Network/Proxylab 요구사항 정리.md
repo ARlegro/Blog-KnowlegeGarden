@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Network/C-Network/Proxylab 요구사항 정리/","noteIcon":"","created":"2025-12-03T14:52:46.097+09:00","updated":"2025-12-13T09:26:25.359+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Network/C-Network/Proxylab 요구사항 정리/","noteIcon":"","created":"2025-12-03T14:52:46.097+09:00","updated":"2025-12-13T18:25:26.811+09:00"}
 ---
 
 

@@ -1,7 +1,6 @@
 ---
-{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangGrpah 실전 패턴/","noteIcon":"","created":"2025-12-03T14:53:06.723+09:00","updated":"2025-12-10T13:54:24.817+09:00"}
+{"dg-publish":true,"permalink":"/프로젝트/나만무/AI-Agent/LangGrpah 실전 패턴/","noteIcon":"","created":"2025-12-03T14:53:06.723+09:00","updated":"2025-12-14T12:45:52.193+09:00"}
 ---
-
 
 ### 목차
 
@@ -20,6 +19,7 @@
 - [7.  Node/Edge 설계 패턴](#7--nodeedge-%EC%84%A4%EA%B3%84-%ED%8C%A8%ED%84%B4)
 - [8.  완성 - agent_graph 생성 및 실행](#8--%EC%99%84%EC%84%B1---agent_graph-%EC%83%9D%EC%84%B1-%EB%B0%8F-%EC%8B%A4%ED%96%89)
 	- [8.1.  실행](#81--%EC%8B%A4%ED%96%89)
+
 
 
 >[!tip] 핵심 패턴 

@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Argorithm/DP, Greedy/개념/Knapsack Problem 개념 + 0-1 Knapsack/","noteIcon":"","created":"2025-12-03T14:52:51.850+09:00","updated":"2025-12-13T09:26:25.931+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Argorithm/DP, Greedy/개념/Knapsack Problem 개념 + 0-1 Knapsack/","noteIcon":"","created":"2025-12-03T14:52:51.850+09:00","updated":"2025-12-13T18:25:27.218+09:00"}
 ---
 
 Next : [[DevStudy/Argorithm/DP, Greedy/개념/Unbounded, Fractional Knapsack\|Unbounded, Fractional Knapsack]]

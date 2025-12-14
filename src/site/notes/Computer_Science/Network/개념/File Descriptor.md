@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Computer_Science/Network/개념/File Descriptor/","noteIcon":"","created":"2025-12-03T14:52:46.209+09:00","updated":"2025-12-13T09:26:25.423+09:00"}
+{"dg-publish":true,"permalink":"/Computer_Science/Network/개념/File Descriptor/","noteIcon":"","created":"2025-12-03T14:52:46.209+09:00","updated":"2025-12-13T18:25:26.860+09:00"}
 ---
 
 

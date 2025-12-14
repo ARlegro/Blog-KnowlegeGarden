@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/First-Class Collections and Read-Only Collections/","noteIcon":"","created":"2025-12-03T14:52:49.378+09:00","updated":"2025-12-13T09:26:27.018+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/First-Class Collections and Read-Only Collections/","noteIcon":"","created":"2025-12-03T14:52:49.378+09:00","updated":"2025-12-13T18:25:27.801+09:00"}
 ---
 
 > 일급 컬렉션과 읽기 전용 컬렉션

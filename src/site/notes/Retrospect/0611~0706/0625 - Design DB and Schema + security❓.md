@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Retrospect/0611~0706/0625 - Design DB and Schema + security❓/","noteIcon":"","created":"2025-12-03T14:52:53.118+09:00","updated":"2025-12-13T09:26:33.651+09:00"}
+{"dg-publish":true,"permalink":"/Retrospect/0611~0706/0625 - Design DB and Schema + security❓/","noteIcon":"","created":"2025-12-03T14:52:53.118+09:00","updated":"2025-12-13T18:25:31.866+09:00"}
 ---
 
 > 지난 일기 [[Retrospect/0611~0706/0624 Help project\|0624 Help project]]

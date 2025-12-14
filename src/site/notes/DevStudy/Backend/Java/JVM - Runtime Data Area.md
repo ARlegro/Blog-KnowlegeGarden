@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/JVM - Runtime Data Area/","noteIcon":"","created":"2025-12-09T17:19:43.303+09:00","updated":"2025-12-13T09:26:27.045+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Java/JVM - Runtime Data Area/","noteIcon":"","created":"2025-12-09T17:19:43.303+09:00","updated":"2025-12-14T12:21:21.201+09:00"}
 ---
 
 
@@ -66,14 +66,13 @@ JVM은 **스택 기반이라 다음 명령 위치를 별도로 저장해야**하
 
 JNI(Java Native Interface) 함수 호출 시 사용된다.
 
-
 JVM 스택과의 차이
 
-| 항목       | JVM Stack          | Native Method Stack   |
-| -------- | ------------------ | --------------------- |
-| 실행 코드    | Java 바이트코드         | C/C++ 등 Native 코드     |
-| Frame 구조 | JVM이 고정 정의         | 플랫폼에 따라 다름            |
-| 오류       | StackOverflowError | StackOverflow + OS 의존 |
+| **항목**       | JVM Stack          | Native Method Stack   |
+| ------------ | ------------------ | --------------------- |
+| **실행 코드**    | Java 바이트코드         | C/C++ 등 Native 코드     |
+| **Frame 구조** | JVM이 고정 정의         | 플랫폼에 따라 다름            |
+| **오류**       | StackOverflowError | StackOverflow + OS 의존 |
 
 ## 3.  모든 스레드가 공유하는 영역
 

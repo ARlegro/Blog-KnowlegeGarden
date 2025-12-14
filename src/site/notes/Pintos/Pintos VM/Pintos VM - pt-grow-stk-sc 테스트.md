@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - pt-grow-stk-sc 테스트/","noteIcon":"","created":"2025-12-03T14:52:52.680+09:00","updated":"2025-12-13T09:26:33.376+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - pt-grow-stk-sc 테스트/","noteIcon":"","created":"2025-12-03T14:52:52.680+09:00","updated":"2025-12-13T18:25:31.692+09:00"}
 ---
 
 

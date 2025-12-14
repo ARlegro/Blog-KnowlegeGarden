@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - 스택 개념 및 구조/","noteIcon":"","created":"2025-12-03T16:03:22.882+09:00","updated":"2025-12-13T09:26:33.437+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - 스택 개념 및 구조/","noteIcon":"","created":"2025-12-03T16:03:22.882+09:00","updated":"2025-12-13T18:25:31.729+09:00"}
 ---
 
 

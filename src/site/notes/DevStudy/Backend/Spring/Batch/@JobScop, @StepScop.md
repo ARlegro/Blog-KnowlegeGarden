@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Backend/Spring/Batch/@JobScop, @StepScop/","noteIcon":"","created":"2025-12-03T14:52:47.596+09:00","updated":"2025-12-13T09:26:28.848+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Backend/Spring/Batch/@JobScop, @StepScop/","noteIcon":"","created":"2025-12-03T14:52:47.596+09:00","updated":"2025-12-13T18:25:28.471+09:00"}
 ---
 
 

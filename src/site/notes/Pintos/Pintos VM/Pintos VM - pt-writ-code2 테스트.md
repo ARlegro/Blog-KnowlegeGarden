@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - pt-writ-code2 테스트/","noteIcon":"","created":"2025-12-03T14:52:52.752+09:00","updated":"2025-12-13T09:26:33.386+09:00"}
+{"dg-publish":true,"permalink":"/Pintos/Pintos VM/Pintos VM - pt-writ-code2 테스트/","noteIcon":"","created":"2025-12-03T14:52:52.752+09:00","updated":"2025-12-13T18:25:31.698+09:00"}
 ---
 
 

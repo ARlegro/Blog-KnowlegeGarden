@@ -1,5 +1,5 @@
 ---
-{"dg-publish":true,"permalink":"/DevStudy/Argorithm/Eratosthenes' Spear (Optimize version)/","noteIcon":"","created":"2025-12-03T14:52:51.942+09:00","updated":"2025-12-13T09:26:26.029+09:00"}
+{"dg-publish":true,"permalink":"/DevStudy/Argorithm/Eratosthenes' Spear (Optimize version)/","noteIcon":"","created":"2025-12-03T14:52:51.942+09:00","updated":"2025-12-13T18:25:27.292+09:00"}
 ---
 
 > [!success] 에라토스테네스의 채 (최적화 버전)
